@@ -38,7 +38,7 @@
 
     <body>
         <section id="header">
-            <a href="#"><img src="img/logo.png" class="logo" alt=""></a>
+            <a href="#"><img src="images/logo.png" class="logo" alt=""></a>
             <div>
                 <form action="" method="post">
                 <input type="text" class="form-input" placeholder="Rechercher" value="<?php if(isset($_POST['keyword'])){ echo $keyword;} ?>" name="keyword">
@@ -49,9 +49,9 @@
             <div>
                 <ul id="navbar">
                     <li><a class="active" href="index.html">Accueil</a></li>
-                    <li><a href="produits.php">Shop</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="produits.php">Produits</a></li>
+                    <li><a href="about.html">À propos de nous</a></li>
+                    <li><a href="contact.html">Contactez-nous</a></li>
                     <li id="lg-bag"><a href="card.html"><i class="far fa-shopping-bag"></i></a></li>
                     <a href="#" id="close"><i class="far fa-times"></i></a>
                 </ul>

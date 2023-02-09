@@ -7,7 +7,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 60px;
+    padding: 20px 50px;
     background: #000000;
     position: sticky;
     top: 0;
@@ -17,7 +17,7 @@ body{
 }
 
 #header .logo{
-    width: 15%;
+    width: 10%;
 }
 
 #navbar {
