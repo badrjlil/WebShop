@@ -24,6 +24,10 @@ nav{
   overflow: hidden;
   transition: 1s;
 }
+#left-navbar{
+  display: flex; 
+  align-items: center;
+}
 nav:hover{
   width: 280px;
   transition: 1s;
@@ -65,7 +69,7 @@ nav .fas{
 .nav-item{
   position: relative;
   top: 12px;
-  margin-left: 10px;
+  margin-left: 40px;
 }
 a:hover{
   background: #eee;
@@ -166,6 +170,42 @@ a:hover i{
   border-radius: 10px;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
+
+label {
+  font-weight: bold;
+  margin-top: 20px;
+  display: block;
+}
+
+input[type="text"],
+textarea {
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  margin-top: 10px;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  float: right;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+img {
+  margin-top: 20px;
+}
+
 .table{
   border-collapse: collapse;
   margin: 25px 0;
@@ -209,3 +249,4 @@ table thead tr{
   color: #fff;
   transition: 0.5rem;
 }
+

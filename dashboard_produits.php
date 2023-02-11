@@ -2,12 +2,6 @@
   require_once("connexion.php");
   $sql="SELECT * FROM Articles ORDER BY date DESC";
   $articles_query=mysqli_query($connexion,$sql);
-  $sql="SELECT COUNT(*) AS 'total_orders' , ROUND(SUM(a.prix),2) AS 'total_earning'  FROM Articles a, Clients cl, Commandes c WHERE cl.idClient = c.idClient AND c.noArticle = a.noArticle AND c.status != 'Canceled'";
-  $total=mysqli_fetch_assoc(mysqli_query($connexion,$sql));
-  $sql="SELECT COUNT(*) AS 'total' FROM Articles WHERE quantite <1";
-  $outofstock=mysqli_fetch_assoc(mysqli_query($connexion,$sql));
-  $sql="SELECT COUNT(*) AS 't_p' FROM Commandes WHERE status = 'Pending'";
-  $pending_orders=mysqli_fetch_assoc(mysqli_query($connexion,$sql));
 ?>
 
 <!DOCTYPE html>
@@ -22,30 +16,41 @@
 <body>
   <div class="container">
     <nav>
-      <ul>
-        <li><a href="#" class="logo">
-          <img src="img/logo.png">
+    <ul>
+        <li><a href="dashboard.php" class="logo">
+          <img src="images/logo.png">
           <span class="nav-item">Admin</span>
         </a></li>
-        <li><a href="dashboard.php">
-          <i class="fas fa-menorah"></i>
+        <li><a href="#">
+        <div id="left-navbar" >
+          <img src="images/dashboard.png" width="40px" style="margin-left:15px">
           <span class="nav-item">Dashboard</span>
+        </div>
+
         </a></li>
         <li><a href="dashboard_produits.php">
-          
-          <span class="nav-item">Produits</span>
+          <div id="left-navbar">
+            <img src="images/product.png" id="" width="40px" style="margin-left:15px">
+            <span class="nav-item">Produits</span>
+          </div>
         </a></li>
         <li><a href="dashboard_commandes.php">
-          <i class="fas fa-database"></i>
+        <div id="left-navbar">
+          <img src="images/orders.png" width="40px" style="margin-left:15px">
           <span class="nav-item">Commandes</span>
+        </div>
         </a></li>
         <li><a href="#">
-          
-          <span class="nav-item">Boit de reseption</span>
+        <div id="left-navbar">
+          <img src="images/inbox.png" width="40px" style="margin-left:15px">
+          <span class="nav-item">Boit de récéption</span>
+        </div>
         </a></li>
         <li><a href="#">
-          <i class="fas fa-user-tie"></i>
+        <div id="left-navbar">
+          <img src="images/customer.png" width="40px" style="margin-left:15px">
           <span class="nav-item">Clients</span>
+        </div>
         </a></li>
 
         <li><a href="#" class="logout">
@@ -65,6 +70,7 @@
 
       <section class="core">
         <div class="core-item">
+          <button>Ajouter produit</button>
           <table class="table">
             <thead>
               <tr>
@@ -104,35 +110,9 @@
                 
                 <td><button onclick="window.location.href='dashboard_produit.php?noArticle=<?php echo $article['noArticle'] ?>'">Modifier</button></td>
               </tr>
-              <?php if($lines==10){break;}} ?>
-              <!-- <tr class="active">
-                <td>02</td>
-                <td>Bader Jlil</td>
-                <td>Apple Watch</td>
-                <td>03-24-22</td>
-                <td>9:00AM</td>
-                <td><img src="images/Iphone 14 Pro - Deep Purple.jpg" style="height: 70px;"></td>
-                <td><button>View</button></td>
-              </tr>
-              <tr>
-                <td>03</td>
-                <td>Hassan Malki</td>
-                <td>MacBook Pro</td>
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td><img src="images/Iphone 14 Pro - Deep Purple.jpg" style="height: 70px;"></td>
-                <td><button>View</button></td>
-              </tr>
-              <tr>
-                <td>04</td>
-                <td>Yasser Zamel</td>
-                <td>Ipad Pro</td>
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td><img src="images/Iphone 14 Pro - Deep Purple.jpg" style="height: 70px;"></td>
-                <td><button>View</button></td>
-              </tr>-->
-              
+              <?php 
+              } 
+              ?>
             </tbody>
           </table>
         </div>

@@ -1,13 +1,13 @@
 <?php
   require_once("connexion.php");
-  $sql="SELECT * FROM Commandes ORDER BY date DESC, time DESC";
-  $articles_query=mysqli_query($connexion,$sql);
-  $sql="SELECT COUNT(*) AS 'total_orders' , ROUND(SUM(a.prix),2) AS 'total_earning'  FROM Articles a, Clients cl, Commandes c WHERE cl.idClient = c.idClient AND c.noArticle = a.noArticle AND c.status != 'Canceled'";
+  $sql="SELECT * FROM Commandes WHERE status = 'Pending' ORDER BY date DESC, time DESC";
+  $pending_commande=mysqli_query($connexion,$sql);
+  $sql="SELECT COUNT(*) AS 'total_orders', SUM(prix_total) AS 'total_earning' FROM Commandes WHERE status != 'Canceled'";
   $total=mysqli_fetch_assoc(mysqli_query($connexion,$sql));
   $sql="SELECT COUNT(*) AS 'total' FROM Articles WHERE quantite <1";
   $outofstock=mysqli_fetch_assoc(mysqli_query($connexion,$sql));
   $sql="SELECT COUNT(*) AS 't_p' FROM Commandes WHERE status = 'Pending'";
-  $pending_orders=mysqli_fetch_assoc(mysqli_query($connexion,$sql));
+  $total_pending_orders=mysqli_fetch_assoc(mysqli_query($connexion,$sql));
 ?>
 
 <!DOCTYPE html>
@@ -24,28 +24,39 @@
     <nav>
       <ul>
         <li><a href="#" class="logo">
-          <img src="img/logo.png">
+          <img src="images/logo.png">
           <span class="nav-item">Admin</span>
         </a></li>
-        <li><a href="#">
-          <i class="fas fa-menorah"></i>
+        <li><a href="dashboard.php">
+        <div id="left-navbar" >
+          <img src="images/dashboard.png" width="40px" style="margin-left:15px">
           <span class="nav-item">Dashboard</span>
+        </div>
+
         </a></li>
         <li><a href="dashboard_produits.php">
-          
-          <span class="nav-item">Produits</span>
+          <div id="left-navbar">
+            <img src="images/product.png" width="40px" style="margin-left:15px">
+            <span class="nav-item">Produits</span>
+          </div>
         </a></li>
         <li><a href="dashboard_commandes.php">
-          <i class="fas fa-database"></i>
+        <div id="left-navbar">
+          <img src="images/orders.png" width="40px" style="margin-left:15px">
           <span class="nav-item">Commandes</span>
+        </div>
         </a></li>
         <li><a href="#">
-          
-          <span class="nav-item">Boit de reseption</span>
+        <div id="left-navbar">
+          <img src="images/inbox.png" width="40px" style="margin-left:15px">
+          <span class="nav-item">Boit de récéption</span>
+        </div>
         </a></li>
         <li><a href="#">
-          <i class="fas fa-user-tie"></i>
+        <div id="left-navbar">
+          <img src="images/customer.png" width="40px" style="margin-left:15px">
           <span class="nav-item">Clients</span>
+        </div>
         </a></li>
 
         <li><a href="#" class="logout">
@@ -58,7 +69,7 @@
 
     <section class="main">
       <div class="main-top">
-        <h1>Populaire Products</h1>
+        <h1>Tableau de bord</h1>
         <i class="fas fa-user-cog"></i>
       </div>
       <div class="product">
@@ -68,7 +79,7 @@
         </div>
         <div class="card">
         <h2>To be shipped</h2>
-        <h3><?php echo $pending_orders['t_p']; ?></h3>
+        <h3><?php echo $total_pending_orders['t_p']; ?></h3>
         </div>
         <div class="card">
         <h2>Out of stock</h2>
@@ -82,43 +93,42 @@
 
       <section class="core">
         <div class="core-item">
-          <h1>Latest Order</h1>
+          <h1>Commandes en attente</h1>
           <table class="table">
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Produit</th>
+                <th>Total</th>
                 <th>Date</th>
-                <th>Time</th>
-                <th>Product</th>
+                <th>Time</th>      
                 <th>Details</th>
               </tr>
             </thead>
             <tbody>
               <?php
               $lines=0;
-              while($orders=mysqli_fetch_assoc($articles_query)){
+              while($orders=mysqli_fetch_assoc($pending_commande)){
                 $lines++;
               ?>
               <tr>
-                <td><?php echo $orders['num'] ?></td>
+                <td><?php echo "#" . sprintf('%05d', $orders['num']) ?></td>
                 <?php 
                   $idClient=$orders['idClient'];
-                  $noArticle=$orders['noArticle'];
+                  //$noArticle=$orders['noArticle'];
                   $sql="SELECT * FROM Clients WHERE idClient = '$idClient'";
                   $query=mysqli_query($connexion,$sql);
                   $client=mysqli_fetch_assoc($query);
-                  $sql="SELECT * FROM Articles WHERE noArticle = '$noArticle'";
+                  /*$sql="SELECT * FROM Articles WHERE noArticle = '$noArticle'";
                   $query=mysqli_query($connexion,$sql);
-                  $article=mysqli_fetch_assoc($query);
+                  $article=mysqli_fetch_assoc($query);*/
                 ?>
                 <td><?php echo $client['prenom'] . " " . $client['nom'] ?></td>
-                <td><?php echo $article['designation'] ?></td>
+                <td><?php echo number_format($orders['prix_total'], 2, ',', ' ')  . " MAD" ?></td>
                 <td><?php echo $orders['date'] ?></td>
-                <td><?php echo $orders['time'] ?></td>
-                <td><img src="<?php echo $article['photo'] ?>" style="height: 70px;"></td>
-                <td><button>View</button></td>
+                <td><?php echo date("H:i", strtotime($orders['time'])) ?></td>
+                
+                <td><button onclick="window.location.href='commande.php?num=<?php echo $orders['num'] ?>'">Afficher</button></td>
               </tr>
               <?php if($lines==5){break;}} ?>
               <!-- <tr class="active">

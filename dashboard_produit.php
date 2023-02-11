@@ -20,28 +20,39 @@
     <nav>
       <ul>
         <li><a href="#" class="logo">
-          <img src="img/logo.png">
+          <img src="images/logo.png">
           <span class="nav-item">Admin</span>
         </a></li>
         <li><a href="dashboard.php">
-          <i class="fas fa-menorah"></i>
+        <div id="left-navbar" >
+          <img src="images/dashboard.png" width="40px" style="margin-left:15px">
           <span class="nav-item">Dashboard</span>
+        </div>
+
         </a></li>
         <li><a href="dashboard_produits.php">
-          
-          <span class="nav-item">Produits</span>
+          <div id="left-navbar">
+            <img src="images/product.png" id="" width="40px" style="margin-left:15px">
+            <span class="nav-item">Produits</span>
+          </div>
         </a></li>
         <li><a href="dashboard_commandes.php">
-          <i class="fas fa-database"></i>
+        <div id="left-navbar">
+          <img src="images/orders.png" width="40px" style="margin-left:15px">
           <span class="nav-item">Commandes</span>
+        </div>
         </a></li>
         <li><a href="#">
-          
-          <span class="nav-item">Boit de reseption</span>
+        <div id="left-navbar">
+          <img src="images/inbox.png" width="40px" style="margin-left:15px">
+          <span class="nav-item">Boit de récéption</span>
+        </div>
         </a></li>
         <li><a href="#">
-          <i class="fas fa-user-tie"></i>
+        <div id="left-navbar">
+          <img src="images/customer.png" width="40px" style="margin-left:15px">
           <span class="nav-item">Clients</span>
+        </div>
         </a></li>
 
         <li><a href="#" class="logout">
@@ -54,7 +65,7 @@
 
     <section class="main">
       <div class="main-top">
-        <h1><?php echo $article["designation"] ?></h1>
+        <h1>Modifier le produit</h1>
         <i class="fas fa-user-cog"></i>
       </div>
       
