@@ -27,7 +27,7 @@
           <img src="img/logo.png">
           <span class="nav-item">Admin</span>
         </a></li>
-        <li><a href="#">
+        <li><a href="dashboard.php">
           <i class="fas fa-menorah"></i>
           <span class="nav-item">Dashboard</span>
         </a></li>
@@ -58,37 +58,19 @@
 
     <section class="main">
       <div class="main-top">
-        <h1>Populaire Products</h1>
+        <h1>Les commandes</h1>
         <i class="fas fa-user-cog"></i>
       </div>
-      <div class="product">
-        <div class="card">
-          <h2>Total orders</h2>
-          <h3><?php echo $total['total_orders'] ?></h3>
-        </div>
-        <div class="card">
-        <h2>To be shipped</h2>
-        <h3><?php echo $pending_orders['t_p']; ?></h3>
-        </div>
-        <div class="card">
-        <h2>Out of stock</h2>
-        <h3><?php echo $outofstock['total'] ?></h3>
-        </div>
-        <div class="card">
-        <h2>Income</h2>
-        <h3><?php echo $total['total_earning'] . " MAD" ?></h3>
-        </div>
-      </div>
+      
 
       <section class="core">
         <div class="core-item">
-          <h1>Latest Order</h1>
           <table class="table">
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Produit</th>
+                <th>Depart</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Product</th>
@@ -120,7 +102,7 @@
                 <td><img src="<?php echo $article['photo'] ?>" style="height: 70px;"></td>
                 <td><button>View</button></td>
               </tr>
-              <?php if($lines==5){break;}} ?>
+              <?php if($lines==10){break;}} ?>
               <!-- <tr class="active">
                 <td>02</td>
                 <td>Bader Jlil</td>

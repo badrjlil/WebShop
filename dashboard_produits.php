@@ -1,6 +1,6 @@
 <?php
   require_once("connexion.php");
-  $sql="SELECT * FROM Commandes ORDER BY date DESC, time DESC";
+  $sql="SELECT * FROM Articles ORDER BY date DESC";
   $articles_query=mysqli_query($connexion,$sql);
   $sql="SELECT COUNT(*) AS 'total_orders' , ROUND(SUM(a.prix),2) AS 'total_earning'  FROM Articles a, Clients cl, Commandes c WHERE cl.idClient = c.idClient AND c.noArticle = a.noArticle AND c.status != 'Canceled'";
   $total=mysqli_fetch_assoc(mysqli_query($connexion,$sql));
@@ -27,7 +27,7 @@
           <img src="img/logo.png">
           <span class="nav-item">Admin</span>
         </a></li>
-        <li><a href="#">
+        <li><a href="dashboard.php">
           <i class="fas fa-menorah"></i>
           <span class="nav-item">Dashboard</span>
         </a></li>
@@ -58,69 +58,53 @@
 
     <section class="main">
       <div class="main-top">
-        <h1>Populaire Products</h1>
+        <h1>Les produits</h1>
         <i class="fas fa-user-cog"></i>
       </div>
-      <div class="product">
-        <div class="card">
-          <h2>Total orders</h2>
-          <h3><?php echo $total['total_orders'] ?></h3>
-        </div>
-        <div class="card">
-        <h2>To be shipped</h2>
-        <h3><?php echo $pending_orders['t_p']; ?></h3>
-        </div>
-        <div class="card">
-        <h2>Out of stock</h2>
-        <h3><?php echo $outofstock['total'] ?></h3>
-        </div>
-        <div class="card">
-        <h2>Income</h2>
-        <h3><?php echo $total['total_earning'] . " MAD" ?></h3>
-        </div>
-      </div>
+      
 
       <section class="core">
         <div class="core-item">
-          <h1>Latest Order</h1>
           <table class="table">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Produit</th>
+                <th>Photo</th>
+                <th>Nom</th>
+                <th>Quantité</th>
+                <th>Prix</th>
+                <th>Catégorie</th>
                 <th>Date</th>
-                <th>Time</th>
-                <th>Product</th>
                 <th>Details</th>
               </tr>
             </thead>
             <tbody>
               <?php
               $lines=0;
-              while($orders=mysqli_fetch_assoc($articles_query)){
+              while($article=mysqli_fetch_assoc($articles_query)){
                 $lines++;
               ?>
               <tr>
-                <td><?php echo $orders['num'] ?></td>
-                <?php 
-                  $idClient=$orders['idClient'];
-                  $noArticle=$orders['noArticle'];
-                  $sql="SELECT * FROM Clients WHERE idClient = '$idClient'";
-                  $query=mysqli_query($connexion,$sql);
-                  $client=mysqli_fetch_assoc($query);
-                  $sql="SELECT * FROM Articles WHERE noArticle = '$noArticle'";
-                  $query=mysqli_query($connexion,$sql);
-                  $article=mysqli_fetch_assoc($query);
-                ?>
-                <td><?php echo $client['prenom'] . " " . $client['nom'] ?></td>
-                <td><?php echo $article['designation'] ?></td>
-                <td><?php echo $orders['date'] ?></td>
-                <td><?php echo $orders['time'] ?></td>
                 <td><img src="<?php echo $article['photo'] ?>" style="height: 70px;"></td>
+                <td><?php echo $article['designation'] ?></td>
+                <td><?php echo $article['quantite'] ?></td>
+                <td><?php echo $article['prix'] ?></td>
+                <?php
+                  $idSubCategorie=$article['idCategorie'];
+                  $sql="SELECT * FROM SubCategories WHERE idCategorie = $idSubCategorie";
+                  $query=mysqli_query($connexion,$sql);
+                  $sub_categorie=mysqli_fetch_assoc($query);
+                  $idCategorie=$sub_categorie['categorie'];
+                  $sql="SELECT nomCategorie FROM Categories WHERE idCategorie = $idCategorie";
+                  $query=mysqli_query($connexion,$sql);
+                  $categorie=mysqli_fetch_assoc($query);
+
+                ?>
+                <td><?php echo $categorie['nomCategorie'] . "/" . $sub_categorie['nomCategorie'] ?></td>
+                <td><?php echo date("d-m-Y", strtotime($article['date'])) ?></td>
+                
                 <td><button>View</button></td>
               </tr>
-              <?php if($lines==5){break;}} ?>
+              <?php if($lines==10){break;}} ?>
               <!-- <tr class="active">
                 <td>02</td>
                 <td>Bader Jlil</td>
