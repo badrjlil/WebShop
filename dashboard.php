@@ -76,7 +76,7 @@
         </div>
         <div class="card">
         <h2>Income</h2>
-        <h3><?php echo $total['total_earning'] . " MAD" ?></h3>
+        <h3><?php echo number_format($total['total_earning'], 2, ',', ' ')  . " MAD" ?></h3>
         </div>
       </div>
 

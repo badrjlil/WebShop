@@ -87,7 +87,7 @@
                 <td><img src="<?php echo $article['photo'] ?>" style="height: 70px;"></td>
                 <td><?php echo $article['designation'] ?></td>
                 <td><?php echo $article['quantite'] ?></td>
-                <td><?php echo $article['prix'] ?></td>
+                <td><?php echo number_format($article['prix'], 2, ',', ' ')  . " MAD" ?></td>
                 <?php
                   $idSubCategorie=$article['idCategorie'];
                   $sql="SELECT * FROM SubCategories WHERE idCategorie = $idSubCategorie";
@@ -102,7 +102,7 @@
                 <td><?php echo $categorie['nomCategorie'] . "/" . $sub_categorie['nomCategorie'] ?></td>
                 <td><?php echo date("d-m-Y", strtotime($article['date'])) ?></td>
                 
-                <td><button>View</button></td>
+                <td><button onclick="window.location.href='dashboard_produit.php?noArticle=<?php echo $article['noArticle'] ?>'">Modifier</button></td>
               </tr>
               <?php if($lines==10){break;}} ?>
               <!-- <tr class="active">
