@@ -24,7 +24,7 @@
         $keyword=$_POST['keyword'];
         $sql="SELECT * FROM Articles WHERE designation LIKE '%$keyword%'";
     }else{
-        $sql="SELECT * FROM Articles WHERE quantite > 0";
+        $sql="SELECT * FROM Articles WHERE quantite > 0  ";
         
     }
     
@@ -108,42 +108,40 @@
                 </form>
         </div>
         
-        <section id="resultproducts" class="right-div">
-            <table>
-                <tr id="test">
+        <section class="Products" >
+            <div class="right-div">
                     <?php
                         $linenbr=0;
                         while($ligne=mysqli_fetch_assoc($resultat)){
-                        $idCategorie=$ligne['idCategorie'];
-                        $sql="SELECT * FROM Categories WHERE idCategorie=$idCategorie";
-                        $query=mysqli_query($connexion,$sql);
-                        $ligne2=mysqli_fetch_assoc($query);
+                            $no_produit=$ligne['noArticle'];
+                            $sql="SELECT photo1 FROM Photos WHERE noArticle =  $no_produit";
+                            $query=mysqli_query($connexion,$sql);
+                            $produit_photo=mysqli_fetch_assoc($query);
                     ?>
 
-                    <td style="margin: 10px">
                     <div id="Product" >
                         <div id="ProductContainer">
                             <div id="Image">
-                                <a href="produit.php?noArticle=<?php echo $ligne['noArticle']; ?>"> <img src="<?php echo $ligne['photo'] ?>" width="300px"></a>
+                                <a href="produit.php?noArticle=<?php echo $ligne['noArticle']; ?>"> <img src="<?php echo $produit_photo['photo1'] ?>" width="300px"></a>
                             </div>
-                            <a href="produit.php?noArticle=<?php echo $ligne['noArticle']; ?>" id="title"><?php echo $ligne['designation'] ?></a> 
-                            <h4 style="margin-left:15px"><?php echo $ligne['prix']?> MAD</h4> 
+                            <div class="title_container">
+                                <a id="title" href="produit.php?noArticle=<?php echo $ligne['noArticle']; ?>" ><?php echo $ligne['designation'] ?></a> 
+                            </div>
+                            <h4><?php echo $ligne['prix']?> MAD</h4> 
                             <button id="BuyButton" onclick="window.location.href='produit.php?noArticle=<?php echo $ligne['noArticle']; ?>'" >Afficher plus</button>
                         </div>
                         </div>
-                    </td>
                     <?php
                         $linenbr+=1;
                         if($linenbr%4==0){
-                            echo'</tr>';
-                            echo'<tr>';
+                            //echo'</div>';
+                            //echo'<div class="right-div">';
                         }
                     ?>
                     <?php
                     }
                     ?>
-                </tr>
-            </table>
+            </div>
         </section>
     </body>
 </html>

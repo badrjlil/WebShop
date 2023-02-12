@@ -109,17 +109,18 @@
                     <?php
                     $sql="SELECT * FROM Commande_details WHERE num = $num_commande";
                     $produits_query=mysqli_query($connexion,$sql);
-                    //$produits_commande=mysqli_fetch_assoc($query);
-                    //echo $produits_commande['noArticle'];
                     $total=0;
                     while($produit=mysqli_fetch_assoc($produits_query)){
                       $produit_id=$produit['noArticle'];
                       $sql="SELECT * FROM Articles WHERE noArticle = $produit_id";
                       $query=mysqli_query($connexion,$sql);
                       $produit_info=mysqli_fetch_assoc($query);
+                      $sql="SELECT photo1 FROM Photos WHERE noArticle = $produit_id";
+                      $query=mysqli_query($connexion,$sql);
+                      $produit_photo=mysqli_fetch_assoc($query);
                     ?>
                     <tr>
-                      <td><img src="<?php echo $produit_info['photo'] ?>" style="height: 70px;"></td>
+                      <td><img src="<?php echo $produit_photo['photo1'] ?>" style="height: 70px;"></td>
                       <td><?php echo $produit_info['designation'] ?></td>
                       
                       <td><?php echo $produit['quantite'] ?></td>
