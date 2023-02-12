@@ -1,9 +1,5 @@
 <?php
   require_once("connexion.php");
-  $no_produit=$_GET['noArticle'];
-  $sql="SELECT * FROM Articles WHERE noArticle = $no_produit";
-  $query=mysqli_query($connexion,$sql);
-  $article=mysqli_fetch_assoc($query);
 ?>
 
 <!DOCTYPE html>
@@ -65,47 +61,57 @@
 
     <section class="main">
       <div class="main-top">
-        <h1>Modifier le produit</h1>
+        <h1>Ajouter un produit</h1>
         <i class="fas fa-user-cog"></i>
       </div>
       
 
       <section class="core">
         <div class="core-item">
-          <form action="modifier.php" method="post"  enctype="multipart/form-data">
+          <form action="ajouter.php" method="post"  enctype="multipart/form-data">
+            <style>
+              #test{
+                border: black 1px solid;
+              }
+            </style>
             <label>Titre</label>
-            <input type="hidden" name="noArticle" value="<?php echo $no_produit ?>">
-            <input  name="designation" type="text"  value="<?php echo $article["designation"] ?>">
+            <input id="test" name="designation" type="text">
             <br>
             <label>Description</label>
             <br>
-            <textarea name="description"  cols="60" rows="10"><?php echo $article["description"] ?></textarea>
-            <label>Prix</label>
-            <input type="text"  name="prix" value="<?php echo $article["prix"] ?>">
-            <label>Quantité</label>
-            <input name="quantite" type="text"  value="<?php echo $article["quantite"] ?>">
+            <textarea name="description" id="test" cols="60" rows="10"></textarea>
             <br>
-
-
+            <label>Catégorie</label>
+            <br>
+            <select name="idCategorie" id="test">
+              <?php
+                $sql="SELECT * FROM SubCategories";
+                $query=mysqli_query($connexion,$sql);
+                while($categorie=mysqli_fetch_assoc($query)){;
+              ?>
+              <option value="<?php echo $categorie['idCategorie'] ?>"><?php echo $categorie['nomCategorie'] ?></option>
+              <?php
+                }
+              ?>
+            </select>
+            <label>Prix</label>
+            <input type="text" id="test" name="prix">
+            <label>Quantité</label>
+            <input name="quantite" type="text" id="test">
+            <br>
             <label>Photos</label>
             <div class="images_container">
               <?php
-                $sql="SELECT * FROM Photos WHERE noArticle=$no_produit";
-                $query=mysqli_query($connexion,$sql);
-                $produit_photos=mysqli_fetch_assoc($query);
                 for ($i = 1; $i <= 6; $i++) {
               ?>
               <div class="box">
-                <img id="selected-image-<?php echo $i?>" class="images" src="<?php echo $produit_photos["photo" . $i] ?>" width="100px" >
+                <img id="selected-image-<?php echo $i?>" class="images" src="" width="100px" >
                 <input id="image-input-<?php echo $i?>" type="file" name="photo<?php echo $i ?>"/>
               </div>
               <?php
                 }
               ?>
             </div>
-              
-
-
             <script>
             for (let i = 1; i <= 6; i++) {
               const input = document.getElementById(`image-input-${i}`);

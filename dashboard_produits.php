@@ -21,7 +21,7 @@
           <img src="images/logo.png">
           <span class="nav-item">Admin</span>
         </a></li>
-        <li><a href="#">
+        <li><a href="dashboard.php">
         <div id="left-navbar" >
           <img src="images/dashboard.png" width="40px" style="margin-left:15px">
           <span class="nav-item">Dashboard</span>
@@ -70,7 +70,7 @@
 
       <section class="core">
         <div class="core-item">
-          <button>Ajouter produit</button>
+          <button onclick="window.location.href='ajouter_produit.php'">Ajouter produit</button>
           <table class="table">
             <thead>
               <tr>
@@ -90,7 +90,13 @@
                 $lines++;
               ?>
               <tr>
-                <td><img src="<?php echo $article['photo'] ?>" style="height: 70px;"></td>
+                <?php
+                $no_produit=$article['noArticle'];
+                $sql="SELECT photo1 FROM Photos WHERE noArticle = $no_produit";
+                $query=mysqli_query($connexion,$sql);
+                $photo_produit=mysqli_fetch_assoc($query);
+                ?>
+                <td><img src="<?php echo $photo_produit['photo1'] ?>" style="height: 70px;"></td>
                 <td><?php echo $article['designation'] ?></td>
                 <td><?php echo $article['quantite'] ?></td>
                 <td><?php echo number_format($article['prix'], 2, ',', ' ')  . " MAD" ?></td>

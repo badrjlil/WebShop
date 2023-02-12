@@ -24,7 +24,7 @@ nav{
   overflow: hidden;
   transition: 1s;
 }
-#left-navbar{
+#left-navbar, .test{
   display: flex; 
   align-items: center;
 }
@@ -250,3 +250,17 @@ table thead tr{
   transition: 0.5rem;
 }
 
+.images_container {
+  display: flex;
+  justify-content: space-between;
+}
+.box {
+  width: calc(25% - 10px);
+  height: 160px;
+  background-color: rgb(233, 233, 233);
+  text-align: center;
+  margin: 5px;
+}
+.images{
+  height: 60%;
+}
