@@ -3,11 +3,23 @@
 	$noArticle=$_GET['noArticle'];
 	$sql="select * from Articles where noArticle=$noArticle";
 	$query=mysqli_query($connexion,$sql);
-	$articles=mysqli_fetch_assoc($query);
+	$article=mysqli_fetch_assoc($query);
     $sql="select * from Photos where noArticle=$noArticle";
     $query=mysqli_query($connexion,$sql);
     $articlesPhotos=mysqli_fetch_assoc($query);
     
+    include 'add_to_cart.php';
+
+    if(isset($message)){
+        foreach($message as $message){
+           echo '
+           <div class="message">
+              <span>'.$message.'</span>
+              <button style="padding:10px" onclick="this.parentElement.remove();">X</button>
+           </div>
+           ';
+        }
+     }
 ?>
 
 <html lang="en">
@@ -16,7 +28,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $articles['designation'] ?></title>
+    <title><?php echo $article['designation'] ?></title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -24,7 +36,7 @@
 <body>
 
     <section id="header">
-        <a href=""><img src="img/logo.png" class="logo" alt=""></a>
+        <a href=""><img src="images/logo.png" class="logo" alt=""></a>
 
         <div>
             <ul id="navbar">
@@ -62,7 +74,7 @@
 
         <div class="single-pro-details">
             <?php
-            $articleCatId=$articles['idCategorie'];
+            $articleCatId=$article['idCategorie'];
             $sql="select * from SubCategories where idCategorie = $articleCatId ";
             $query=mysqli_query($connexion,$sql);
             $subCategorie=mysqli_fetch_assoc($query); 
@@ -73,13 +85,17 @@
 
             ?>
             <h6><?php echo $mainCategorie['nomCategorie'] . "/" . $subCategorie['nomCategorie'] ?></h6>
-            <h4><?php echo $articles['designation'] ?></h4>
-            <h2><?php echo $articles['prix'] . " MAD" ?></h2>
+            <h4><?php echo $article['designation'] ?></h4>
+            <h2><?php echo $article['prix'] . " MAD" ?></h2>
             
-            <input type="number" value="1">
-            <button class="normal">Ajouter Au Panier</button>
+            <form action="" method="post">
+                <input type="hidden" name="noArticle" value="<?php echo $article['noArticle'] ?>">
+                
+                <input type="number" value="1" name="qts">
+                <button class="normal" type="submit" name="add_to_cart">Ajouter Au Panier</button>
+            </form>
             <h4>Description</h4>
-            <span><?php echo $articles['description'] ?></span>
+            <span><?php echo $article['description'] ?></span>
         </div>
     </section>
 
@@ -141,7 +157,7 @@
     <script>
         var MainImg = document.getElementById("MainImg");
         var smallimg = document.getElementsByClassName("small-img");
-
+            
         smallimg[0].onclick = function() {
             MainImg.src = smallimg[0].src;
         }
