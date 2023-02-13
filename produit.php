@@ -15,7 +15,7 @@
            echo '
            <div class="message">
               <span>'.$message.'</span>
-              <button style="padding:10px" onclick="this.parentElement.remove();">X</button>
+              <div  style="cursor:pointer; background-color:gray; color:white; padding:5px; border-radius:40%" class"close-btn" onclick="this.parentElement.remove();">X</div>
            </div>
            ';
         }
@@ -29,7 +29,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $article['designation'] ?></title>
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -45,6 +45,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li id="lg-bag"><a href="card.html"><i class="far fa-shopping-bag"></i></a></li>
+                <li><a href="#"><i class="fa fa-user"></i></a></li>
                 <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>
         </div>

@@ -120,7 +120,7 @@
                       $produit_photo=mysqli_fetch_assoc($query);
                     ?>
                     <tr>
-                      <td><img src="<?php echo $produit_photo['photo1'] ?>" style="height: 70px;"></td>
+                      <td><img src="<?php echo "../" . $produit_photo['photo1'] ?>" style="height: 70px;"></td>
                       <td><?php echo $produit_info['designation'] ?></td>
                       
                       <td><?php echo $produit['quantite'] ?></td>

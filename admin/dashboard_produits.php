@@ -96,7 +96,7 @@
                 $query=mysqli_query($connexion,$sql);
                 $photo_produit=mysqli_fetch_assoc($query);
                 ?>
-                <td><img src="<?php echo $photo_produit['photo1'] ?>" style="height: 70px;"></td>
+                <td><img src="<?php echo "../" . $photo_produit['photo1'] ?>" style="height: 70px;"></td>
                 <td><?php echo $article['designation'] ?></td>
                 <td><?php echo $article['quantite'] ?></td>
                 <td><?php echo number_format($article['prix'], 2, ',', ' ')  . " MAD" ?></td>

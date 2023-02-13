@@ -5,7 +5,7 @@ session_start();
 
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
-   echo "user id : " . $user_id;
+   //header('location:../produits.php');
 }else{
    $user_id = '';
 };
@@ -18,13 +18,9 @@ if(isset($_POST['submit'])){
    $sql="SELECT * FROM Clients WHERE email = '$email' AND password = '$pass'";
    $query=mysqli_query($connexion,$sql);
    $client=mysqli_fetch_assoc($query);
-   /*$select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ?");
-   $select_user->execute([$email, $pass]);
-   $row = $select_user->fetch(PDO::FETCH_ASSOC);*/
-
    if(mysqli_num_rows($query) > 0){
       $_SESSION['user_id'] = $client['idClient']; 
-      header('location:index.html');
+      header('location:register.php');
    }else{
       $message[] = 'incorrect username or password!';
    }
@@ -35,11 +31,13 @@ if(isset($_POST['submit'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>WebShop - Connexion</title>
+	<title>WebShop - Inscription</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+
 </head>
 <body>
 	
@@ -52,16 +50,28 @@ if(isset($_POST['submit'])){
 
 				<form action="" method="post" class="login100-form validate-form">
 					<span class="login100-form-title">
-						S'identifier
+						Inscription
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="prenom" placeholder="Prénom">
+						<span class="focus-input100"></span>
+
+					</div>
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="nom" placeholder="Nom">
+						<span class="focus-input100"></span>
+
+					</div>
+
+					
+					<div class="wrap-input100 validate-input">
 						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
 
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+					<div class="wrap-input100 validate-input">
 						<input class="input100" type="password" name="pass" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -70,23 +80,23 @@ if(isset($_POST['submit'])){
 					
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" name="submit">
-							Se connecter
+							S'inscrire
 						</button>
 					</div>
 
-
 					<div class="text-center p-t-136">
-						<a class="txt2" href="register.php">
-							Créez votre compte
+						<a class="txt2" href="#">
+						Se connecter
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
-						<a href="user_logout.php">Log Out</a>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 	
+	
+
 
 
 </body>

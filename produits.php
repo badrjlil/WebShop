@@ -38,6 +38,7 @@
     <head>
         
         <title>Listes des produits</title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
         <link rel="stylesheet" href="produits.css">
         <script src="script.js" defer></script>
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">

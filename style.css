@@ -38,6 +38,15 @@ p {
     margin: 15px 0 20px 0;
 }
 
+.inp-normal{
+    padding: 10px ;
+    cursor: pointer;
+    background-color:#05a3ff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
 button.normal {
     font-size: 14px;
     font-weight: 600;
@@ -599,7 +608,7 @@ footer a:hover {
     justify-content: space-between;
     gap:1.5rem;
     z-index: 1100;
- }
+}
 
 
 
@@ -673,6 +682,17 @@ footer a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+#retirer{
+    text-align: center;
+    border-radius:50%;
+    padding:5px;
+    background-color: #05a3ff;
+    margin-bottom:10px;
+    border:none;
+    cursor:pointer;
+    
 }
 
 #cuopon {
@@ -796,6 +816,8 @@ footer a:hover {
 @media (max-width:799px) {
     .section-p1 {
         padding: 40px;
+        position: fixed;
+        bottom: 0;
     }
     #navbar {
         display: flex;

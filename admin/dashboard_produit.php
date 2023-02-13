@@ -96,7 +96,7 @@
                 for ($i = 1; $i <= 6; $i++) {
               ?>
               <div class="box">
-                <img id="selected-image-<?php echo $i?>" class="images" src="<?php echo $produit_photos["photo" . $i] ?>" width="100px" >
+                <img id="selected-image-<?php echo $i?>" class="images" src="<?php echo "../" . $produit_photos["photo" . $i] ?>" width="100px" >
                 <input id="image-input-<?php echo $i?>" type="file" name="photo<?php echo $i ?>"/>
               </div>
               <?php

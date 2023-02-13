@@ -1,3 +1,29 @@
+<?php
+    require_once("connexion.php");
+    session_start();
+    if(isset($_SESSION['user_id'])){
+        $user_id = $_SESSION['user_id'];
+
+
+      
+        if(isset($_POST['noArticle'])){
+            $no_produit=$_POST['noArticle'];
+            $sql="DELETE FROM Panier WHERE noArticle = $no_produit";
+            $query=mysqli_query($connexion,$sql);
+        }
+
+        if(isset($_POST['passer'])){
+            echo $_POST['user_id'];
+        }
+
+      $sql="SELECT * FROM Panier WHERE idClient = $user_id";
+      $panier_query=mysqli_query($connexion,$sql);
+      $nbr_produits=mysqli_num_rows($panier_query);
+    }
+
+    
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +41,7 @@
 <body>
 
     <section id="header">
-        <a href="#"><img src="img/logo.png" class="logo" alt=""></a>
+        <a href="#"><img src="images/logo.png" class="logo" alt=""></a>
         <div>
             <ul id="navbar">
                 <li><a href="index.html">Accueil</a></li>
@@ -23,6 +49,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li id="lg-bag"><a href="#" class="active"><i class="far fa-shopping-bag"></i></a></li>
+                <li><a href="#"><i class="fa fa-user"></i></a></li>
                 <a id="close" href="#"><i class="far fa-times"></i></a>
             </ul>
         </div>
@@ -34,6 +61,11 @@
     </section>
 
     
+    <?php
+        if($nbr_produits > 0){
+
+        
+    ?>
 
     <section id="cart" class="section-p1">
         <table width="100%">
@@ -49,18 +81,38 @@
             </thead>
 
             <tbody>
+                <?php
+                $total_net=0;
+                while($panier_article=mysqli_fetch_assoc($panier_query)){
+                    $no_produit=$panier_article['noArticle'];
+                    $sql="SELECT * FROM Articles WHERE noArticle = $no_produit";
+                    $query=mysqli_query($connexion,$sql);
+                    $article=mysqli_fetch_assoc($query);
+                    
+                    $sql="SELECT photo1 FROM Photos WHERE noArticle = $no_produit";
+                    $query=mysqli_query($connexion,$sql);
+                    $photo_produit=mysqli_fetch_assoc($query);
+                    
+                ?>
                 <tr>
-                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="img/iphone-compare-iphone-14-pro.jfif" alt=""></td>
-                    <td>Iphone 14 pro</td>
-                    <td>$1299.99</td>
-                    <td><input type="number" value="1" name="" id=""></td>
-                    <td>$129.19</td>
+                    <form action="" method="post">
+                    <td><input type="submit" value="X" id="retirer"><input type="hidden" name="noArticle" value="<?php echo $no_produit ?>"></td>
+                    <td><img src="<?php echo $photo_produit['photo1']?>" ></td>
+                    <td><?php echo $article['designation']?></td>
+                    <td><?php echo $article['prix']?></td>
+                    <td><?php echo $panier_article['qts']?></td>
+                    <td><?php echo ($article['prix']*$panier_article['qts'])?></td>
+                    </form>
                 </tr>
+                <?php
+                $total+=($article['prix']*$panier_article['qts']);
+                }
+                ?>
                
             </tbody>
         </table>
     </section>
+
 
     <section id="cart-add" class="section-p1">
         <div id="cuopon">
@@ -75,26 +127,38 @@
             <h3>Totaux du panier</h3>
             <table>
                 <tr>
-                    <td>Sous-total du panier</td>
-                    <td>$1299.99</td>
+                    <td>Total du panier</td>
+                    <td><?php echo $total . " MAD" ?></td>
                 </tr>
                 <tr>
-                    <td>livraison</td>
-                    <td>gratuit</td>
+                    <td>Livraison</td>
+                    <td>Gratuit</td>
                 </tr>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td><strong>$1299.99</strong></td>
+                    <td><strong><?php echo $total . " MAD" ?></strong></td>
                 </tr>
             </table>
-            <button class="normal">Passer à la caisse</button>
+            <form action="checkout.php" method="post">
+                <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
+                <input class="inp-normal" type="submit" name="passer" value="Passer à la caisse">
+                <!--<button class="normal">Passer à la caisse</button>-->
+            </form>
         </div>
     </section>
+            
+    <?php
+        }else{
+    ?>
+        <p align="center" >Le panier est vide</p>
 
+    <?php
+        }
+    ?>
 
     <footer class="section-p1">
         <div class="col">
-            <img class="logo" src="img/logo.png" alt="">
+            <img class="logo" src="images/logo.png" alt="">
             <h4>Contact</h4>
             <p><strong>Address: </strong> ain sebaa, casablanca, maroc</p>
             <p><strong>Téléphoner:</strong> +212 6 84 06 35 95 </p>
@@ -141,7 +205,7 @@
         </div>
 
         <div class="copyright">
-            <p style="color: white;">©@2023 Online Ecommerce Shop | Créé Par Omar Elfarah Bader Jlil Yasser Zamel</p>
+            <p style="color: white;">©2023 Online Ecommerce Shop</p>
         </div>
     </footer>
 
