@@ -44,19 +44,19 @@
 
     <section id="prodetails" class="section-p1">
         <div class="single-pro-image">
-            <img src="<?php echo $articles['photo'] ?>" width="700px" id="MainImg" alt="">
+            <img src="<?php echo $articlesPhotos['photo1'] ?>" width="700px" id="MainImg" alt="">
 
             <div class="small-img-group">
+            <?php for($i=1; $i<=6; $i++){
+                if(strlen($articlesPhotos["photo$i"])){
+            ?>
                 <div class="small-img-col">
-                    <img src="<?php echo $articlesPhotos['photo1'] ?>" width="100%" class="small-img" alt="">
+                    <img src="<?php echo $articlesPhotos["photo$i"] ?>" width="100%" class="small-img" alt="">
                 </div>
-                <div class="small-img-col">
-                    <img src="<?php echo $articlesPhotos['photo2'] ?>" width="100%" class="small-img" alt="">
-                </div>
-                <div class="small-img-col">
-                    <img src="<?php echo $articlesPhotos['photo3'] ?>" width="100%" class="small-img" alt="">
-                </div>
-                
+            <?php
+                }
+            }
+            ?>
             </div>
         </div>
 
@@ -79,11 +79,7 @@
             <input type="number" value="1">
             <button class="normal">Ajouter Au Panier</button>
             <h4>Description</h4>
-            <span>Vibrant 6.1-inch Super Retina XDR display with OLED technology. Action mode for smooth, steady, handheld videos.
-                High resolution and color accuracy make everything look sharp and true to life.
-                New Main camera and improved image processing to capture your shots in all kinds of light - especially low light.
-                4K Cinematic mode at 24 fps automatically shifts focus to the most important subject in a scene.
-                A15 Bionic, with a 5‑core GPU for lightning-fast performance. Superfast 5G.</span>
+            <span><?php echo $articles['description'] ?></span>
         </div>
     </section>
 
@@ -157,6 +153,12 @@
         }
         smallimg[3].onclick = function() {
             MainImg.src = smallimg[3].src;
+        }
+        smallimg[4].onclick = function() {
+            MainImg.src = smallimg[4].src;
+        }
+        smallimg[5].onclick = function() {
+            MainImg.src = smallimg[5].src;
         }
     </script>
 

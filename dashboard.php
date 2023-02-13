@@ -115,13 +115,9 @@
                 <td><?php echo "#" . sprintf('%05d', $orders['num']) ?></td>
                 <?php 
                   $idClient=$orders['idClient'];
-                  //$noArticle=$orders['noArticle'];
                   $sql="SELECT * FROM Clients WHERE idClient = '$idClient'";
                   $query=mysqli_query($connexion,$sql);
                   $client=mysqli_fetch_assoc($query);
-                  /*$sql="SELECT * FROM Articles WHERE noArticle = '$noArticle'";
-                  $query=mysqli_query($connexion,$sql);
-                  $article=mysqli_fetch_assoc($query);*/
                 ?>
                 <td><?php echo $client['prenom'] . " " . $client['nom'] ?></td>
                 <td><?php echo number_format($orders['prix_total'], 2, ',', ' ')  . " MAD" ?></td>
@@ -130,35 +126,7 @@
                 
                 <td><button onclick="window.location.href='commande.php?num=<?php echo $orders['num'] ?>'">Afficher</button></td>
               </tr>
-              <?php if($lines==5){break;}} ?>
-              <!-- <tr class="active">
-                <td>02</td>
-                <td>Bader Jlil</td>
-                <td>Apple Watch</td>
-                <td>03-24-22</td>
-                <td>9:00AM</td>
-                <td><img src="images/Iphone 14 Pro - Deep Purple.jpg" style="height: 70px;"></td>
-                <td><button>View</button></td>
-              </tr>
-              <tr>
-                <td>03</td>
-                <td>Hassan Malki</td>
-                <td>MacBook Pro</td>
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td><img src="images/Iphone 14 Pro - Deep Purple.jpg" style="height: 70px;"></td>
-                <td><button>View</button></td>
-              </tr>
-              <tr>
-                <td>04</td>
-                <td>Yasser Zamel</td>
-                <td>Ipad Pro</td>
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td><img src="images/Iphone 14 Pro - Deep Purple.jpg" style="height: 70px;"></td>
-                <td><button>View</button></td>
-              </tr>-->
-              
+              <?php if($lines==5){break;}} ?>             
             </tbody>
           </table>
         </div>
