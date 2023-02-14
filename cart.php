@@ -197,11 +197,11 @@
             <h4>Installer L'application</h4>
             <p>Depuis App Store ou Google Play</p>
             <div class="row">
-                <img src="img/pay/app.jpg" alt="">
-                <img src="img/pay/play.jpg" alt="">
+                <img src="images/pay/app.jpg" alt="">
+                <img src="images/pay/play.jpg" alt="">
             </div>
             <p>Passerelles de paiement sécurisées</p>
-            <img src="img/pay/pay.png" alt="">
+            <img src="images/pay/pay.png" alt="">
         </div>
 
         <div class="copyright">
