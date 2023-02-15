@@ -1,32 +1,89 @@
 <?php
-    require_once("connexion.php");
-    $no_produit=$_POST['noArticle'];
-    $designation=$_POST['designation'];
-    $prix=$_POST['prix'];
-    $description=$_POST['description'];
-    $quantite=$_POST['quantite'];
-    $photo1=$_FILES['photo1']['name'];
-    $photo2=$_FILES['photo2']['name'];
-    $photo3=$_FILES['photo3']['name'];
-    $photo4=$_FILES['photo4']['name'];
-    $photo5=$_FILES['photo5']['name'];
-    $photo6=$_FILES['photo6']['name'];
-
-    $sql="UPDATE Articles SET designation='$designation', prix=$prix, description=\"$description\", quantite=$quantite WHERE noArticle=$no_produit";
-    $query=mysqli_query($connexion,$sql);
-    for ($i = 1; $i <= 6; $i++) {
-        if(strlen (${"photo" . $i})!=0 ){
-            $photo=${"photo" . $i};
-            $fileExt = explode('.', $photo);
-            $fileActualExt = strtolower(end($fileExt));
-            $fileNameNew = uniqid(sprintf('%05d', $no_produit) . "-" . $i . "-", true).".".$fileActualExt;
-            $photo_num="photo" . $i;
-            $photo_path="produits/" . $fileNameNew ;
-            $photo_path_tmp=$_FILES["photo" . $i]['tmp_name'];
-            move_uploaded_file($photo_path_tmp,$photo_path);
-            $sql="UPDATE Photos SET $photo_num='$photo_path' WHERE noArticle=$no_produit";
-            $query=mysqli_query($connexion,$sql);
-        }
-    }
-    header("location:dashboard_produits.php");
+  require_once("../connexion.php");
+  $no_produit=$_GET['noArticle'];
+  $sql="SELECT * FROM Articles WHERE noArticle = $no_produit";
+  $query=mysqli_query($connexion,$sql);
+  $article=mysqli_fetch_assoc($query);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dashStyle.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+
+<?php include '../comp/admin_header.php';  ?>
+
+
+
+    <section class="main">
+      <div class="main-top">
+        <h1>Modifier le produit</h1>
+        <i class="fas fa-user-cog"></i>
+      </div>
+      
+
+      <section class="core">
+        <div class="core-item">
+          <form action="update.php" method="post"  enctype="multipart/form-data">
+            <label>Titre</label>
+            <input type="hidden" name="noArticle" value="<?php echo $no_produit ?>">
+            <input  name="designation" type="text"  value="<?php echo $article["designation"] ?>">
+            <br>
+            <label>Description</label>
+            <br>
+            <textarea name="description"  cols="60" rows="10"><?php echo $article["description"] ?></textarea>
+            <label>Prix</label>
+            <input type="text"  name="prix" value="<?php echo $article["prix"] ?>">
+            <label>Quantité</label>
+            <input name="quantite" type="text"  value="<?php echo $article["quantite"] ?>">
+            <br>
+
+
+            <label>Photos</label>
+            <div class="images_container">
+              <?php
+                $sql="SELECT * FROM Photos WHERE noArticle=$no_produit";
+                $query=mysqli_query($connexion,$sql);
+                $produit_photos=mysqli_fetch_assoc($query);
+                for ($i = 1; $i <= 6; $i++) {
+              ?>
+              <div class="box">
+                <img id="selected-image-<?php echo $i?>" class="images" src="<?php echo "../" . $produit_photos["photo" . $i] ?>" width="100px" >
+                <input id="image-input-<?php echo $i?>" type="file" name="photo<?php echo $i ?>"/>
+              </div>
+              <?php
+                }
+              ?>
+            </div>
+              
+
+
+            <script>
+            for (let i = 1; i <= 6; i++) {
+              const input = document.getElementById(`image-input-${i}`);
+              const image = document.getElementById(`selected-image-${i}`);
+          
+              input.addEventListener("change", function () {
+                const reader = new FileReader();
+                reader.onload = function () {
+                  image.src = reader.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+              });
+            }
+            </script>
+            <input type="submit" value="Enregistrer">
+          </form>
+        </div>
+      </section>
+    </section>
+  </div>
+
+</body>
+</html>

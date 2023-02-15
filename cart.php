@@ -4,8 +4,6 @@
     if(isset($_SESSION['user_id'])){
         $user_id = $_SESSION['user_id'];
 
-
-      
         if(isset($_POST['noArticle'])){
             $no_produit=$_POST['noArticle'];
             $sql="DELETE FROM Panier WHERE noArticle = $no_produit";
@@ -39,26 +37,9 @@
 </head>
 
 <body>
-
-    <section id="header">
-        <a href="#"><img src="images/logo.png" class="logo" alt=""></a>
-        <div>
-            <ul id="navbar">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a href="#" class="active"><i class="far fa-shopping-bag"></i></a></li>
-                <li><a href="#"><i class="fa fa-user"></i></a></li>
-                <a id="close" href="#"><i class="far fa-times"></i></a>
-            </ul>
-        </div>
-        <div id="mobile">
-            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
-            <i id="bar" class="fas fa-outdent"></i>
-
-        </div>
-    </section>
+    <?php
+        include 'comp/user_header.php';
+    ?>
 
     
     <?php
@@ -95,13 +76,15 @@
                     
                 ?>
                 <tr>
-                    <form action="" method="post">
-                    <td><input type="submit" value="X" id="retirer"><input type="hidden" name="noArticle" value="<?php echo $no_produit ?>"></td>
-                    <td><img src="<?php echo $photo_produit['photo1']?>" ></td>
-                    <td><?php echo $article['designation']?></td>
-                    <td><?php echo $article['prix']?></td>
-                    <td><?php echo $panier_article['qts']?></td>
-                    <td><?php echo ($article['prix']*$panier_article['qts'])?></td>
+                    <form action="" method="post" id="form-<?php echo $no_produit ?>">
+                        <!--<td><input type="submit" value="X" id="retirer"><input type="hidden" name="noArticle" value="<?php echo $no_produit ?>"></td>-->
+                        <td><i style="cursor: pointer;" class="fa fa-times-circle" onclick="document.getElementById('form-<?php echo $no_produit ?>').submit();"></i></td>
+                        <td><img src="<?php echo $photo_produit['photo1']?>" ></td>
+                        <td><?php echo $article['designation']?></td>
+                        <td><?php echo number_format($article['prix'], 2, ',', ' ') ?> MAD</td>
+                        <td><?php echo $panier_article['qts']?></td>
+                        <td><?php echo number_format(($article['prix']*$panier_article['qts']), 2, ',', ' ')?> MAD</td>
+                        <input type="hidden" name="noArticle" value="<?php echo $no_produit ?>">
                     </form>
                 </tr>
                 <?php
@@ -115,13 +98,6 @@
 
 
     <section id="cart-add" class="section-p1">
-        <div id="cuopon">
-            <h3>Appliquer Coupon</h3>
-            <div>
-                <input type="text" name="" id="" placeholder="Enter Votre Coupon">
-                <button class="normal">Appliquer</button>
-            </div>
-        </div>
 
         <div id="subtotal">
             <h3>Totaux du panier</h3>
@@ -136,7 +112,7 @@
                 </tr>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td><strong><?php echo $total . " MAD" ?></strong></td>
+                    <td><strong><?php echo number_format($total, 2, ',', ' ')  ?> MAD</strong></td>
                 </tr>
             </table>
             <form action="checkout.php" method="post">

@@ -264,3 +264,12 @@ table thead tr{
 .images{
   height: 60%;
 }
+#geninfo{
+  display: flex;
+  justify-content:space-between;
+  
+}
+ #clinfo{
+width:60%;
+margin-block: 40px;
+}

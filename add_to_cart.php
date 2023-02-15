@@ -26,12 +26,12 @@ if(isset($_POST['add_to_cart'])){
       $query=mysqli_query($connexion,$sql);
       $verif_panier_nbr=mysqli_num_rows($query);
       if($verif_panier_nbr > 0){
-         $message[] = 'déjà ajouté au panier !';
+         $message[] = 'Le produit est déjà dans le panier.';
       }else{
          $sql="INSERT INTO Panier (idClient, noArticle, qts) VALUES($user_id, $pid, $qts)";
          $query=mysqli_query($connexion,$sql);
       
-         $message[] = 'ajouté au panier !';
+         $message[] = '<i class="fa fa-check" aria-hidden="true"></i>  Ajouté au panier ';
       
       }
 

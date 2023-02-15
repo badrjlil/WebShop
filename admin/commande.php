@@ -1,9 +1,20 @@
 <?php
-    require_once("connexion.php");
+    require_once("../connexion.php");
     $num_commande=$_GET['num'];
     $sql="SELECT * FROM Commandes WHERE num = $num_commande";
     $query=mysqli_query($connexion,$sql);
     $commandes=mysqli_fetch_assoc($query);
+
+    $user_id=$commandes['idClient'];
+    $sql="SELECT * FROM Clients WHERE idClient = $user_id";
+    $query=mysqli_query($connexion,$sql);
+    $client=mysqli_fetch_assoc($query);
+
+    
+    $adresse_id=$commandes['adresse_id'];
+    $sql="SELECT * FROM Adresses WHERE id = $adresse_id";
+    $query=mysqli_query($connexion,$sql);
+    $adresse=mysqli_fetch_assoc($query);
 ?>
 
 <!DOCTYPE html>
@@ -15,51 +26,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 </head>
 <body>
-  <div class="container">
-    <nav>
-    <ul>
-        <li><a href="#" class="logo">
-          <img src="images/logo.png">
-          <span class="nav-item">Admin</span>
-        </a></li>
-        <li><a href="dashboard.php">
-        <div id="left-navbar" >
-          <img src="images/dashboard.png" width="40px" style="margin-left:15px">
-          <span class="nav-item">Dashboard</span>
-        </div>
 
-        </a></li>
-        <li><a href="dashboard_produits.php">
-          <div id="left-navbar">
-            <img src="images/product.png" id="" width="40px" style="margin-left:15px">
-            <span class="nav-item">Produits</span>
-          </div>
-        </a></li>
-        <li><a href="dashboard_commandes.php">
-        <div id="left-navbar">
-          <img src="images/orders.png" width="40px" style="margin-left:15px">
-          <span class="nav-item">Commandes</span>
-        </div>
-        </a></li>
-        <li><a href="#">
-        <div id="left-navbar">
-          <img src="images/inbox.png" width="40px" style="margin-left:15px">
-          <span class="nav-item">Boit de récéption</span>
-        </div>
-        </a></li>
-        <li><a href="#">
-        <div id="left-navbar">
-          <img src="images/customer.png" width="40px" style="margin-left:15px">
-          <span class="nav-item">Clients</span>
-        </div>
-        </a></li>
+<?php include '../comp/admin_header.php';  ?>
 
-        <li><a href="#" class="logout">
-          <i class="fas fa-sign-out-alt"></i>
-          <span class="nav-item">Log out</span>
-        </a></li>
-      </ul>
-    </nav>
 
 
     <section class="main">
@@ -70,27 +39,37 @@
       <section class="core">
         <div class="core-item">
             <form action="valider.php" method="post">
+            <div id="geninfo">
+              <div>
                 <h2>Commande #<?php echo sprintf('%05d', $commandes['num'] ) ?></h2>
                 <h4>Date de la commande</h4>
                 <p><?php echo $commandes['date'] ?></p>
+                <h4>Utilisateur</h4>
+                <p><?php echo $client['prenom'] . " " . $client['nom'] ?></p>
+                <h4>Email</h4>
+                <p><?php echo $client['email'] ?></p>
                 <h4>Status</h4>
                 <select id="selectElement" name="status">
                     <option value="Pending">Pending</option>
                     <option value="Shipped">Shipped</option>
                     <option value="Canceled">Canceled</option>
                 </select>
-                <h4>Client</h4>
-                <?php 
-                    $id_client=$commandes['idClient'];
-                    $sql="SELECT * FROM Clients WHERE idClient = $id_client";
-                    $query=mysqli_query($connexion,$sql);
-                    $client=mysqli_fetch_assoc($query);
-                ?>
-                <p><?php echo $client['prenom'] . " " . $client['nom'] ?></p>
+              </div>
+              <div id="clinfo">
+                <h4>Nom complet</h4>
+                <p><?php echo $adresse['prenom'] . " " . $adresse['nom'] ?></p>
                 <h4>Adresse</h4>
-                <p><?php echo $client['adresse'] ?></p>
+                <p><?php echo $adresse['adresse'] ?></p>
+                <h4>Ville</h4>
+                <p><?php echo $adresse['ville'] ?></p>
+                <h4>Région</h4>
+                <p><?php echo $adresse['region'] ?></p>
+                <h4>Code postal</h4>
+                <p><?php echo $adresse['zip'] ?></p>
                 <h4>Téléphone</h4>
-                <p><?php echo "+212 " . substr_replace($client['telephone'], '-', 3, 0) ?></p>
+                <p><?php echo "+212 " . substr_replace($adresse['telephone'], '-', 3, 0) ?></p>
+                </div>
+                </div>
                 <h4>Produits commandés</h4>
                 
                 

@@ -37,9 +37,15 @@ if(isset($_POST['submit'])){
 
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+	<link rel="stylesheet" href="style.css">
+
 
 </head>
 <body>
+	<?php
+        include 'comp/user_header.php';
+    ?>
 	
 	<div class="limiter">
 		<div class="container-login100">

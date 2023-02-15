@@ -10,16 +10,7 @@
     
     include 'add_to_cart.php';
 
-    if(isset($message)){
-        foreach($message as $message){
-           echo '
-           <div class="message">
-              <span>'.$message.'</span>
-              <div  style="cursor:pointer; background-color:gray; color:white; padding:5px; border-radius:40%" class"close-btn" onclick="this.parentElement.remove();">X</div>
-           </div>
-           ';
-        }
-     }
+    
 ?>
 
 <html lang="en">
@@ -34,26 +25,9 @@
 </head>
 
 <body>
-
-    <section id="header">
-        <a href=""><img src="images/logo.png" class="logo" alt=""></a>
-
-        <div>
-            <ul id="navbar">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a class="active" href="shop.html">Shop</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a href="card.html"><i class="far fa-shopping-bag"></i></a></li>
-                <li><a href="#"><i class="fa fa-user"></i></a></li>
-                <a href="#" id="close"><i class="far fa-times"></i></a>
-            </ul>
-        </div>
-        <div id="mobile">
-            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
-            <i id="bar" class="fas fa-outdent"></i>
-        </div>
-    </section>
+    <?php
+        include 'comp/user_header.php';
+    ?>
 
     <section id="prodetails" class="section-p1">
         <div class="single-pro-image">

@@ -8,20 +8,9 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>	
 <body>
-	<section id="header">
-        <a href="file:///C:/Users/lenovo/Desktop/website/Tutorial%20-%20Copy/index.html"><img src="img/logo.png" class="logo" alt=""></a>
-
-        <div>
-            <ul id="navbar">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a class="active" href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a href="card.html"><i class="far fa-shopping-bag"></i></a></li>
-            </ul>
-        </div>
-        
-    </section>
+	<?php
+        include 'comp/user_header.php';
+    ?>
 	<div class="section">
 		<div class="container"style=" padding-top: 50px;">
 			<div class="content-section">

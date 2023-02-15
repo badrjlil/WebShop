@@ -37,22 +37,26 @@
 <html>
     <head>
         
-        <title>Listes des produits</title>
+        <title>WebShop - Produits</title>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-        <link rel="stylesheet" href="produits.css">
+        <link rel="stylesheet" href="style2.css">
         <script src="script.js" defer></script>
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     </head>
 
     <body>
+
+        <?php
+        include 'comp/user_header.php';
+        ?>
+<!--
         <section id="header">
             <a href="#"><img src="images/logo.png" class="logo" alt=""></a>
             <div >
                 <form action="" method="post">
                     <input id="search-box" type="text" class="form-input" placeholder="Rechercher" value="<?php if(isset($_REQUEST['keyword'])){ echo $keyword;} ?>" name="keyword">
                     <input type="submit" class="form-submit" value="Chercher">
-                </form>
-                
+                </form>      
             </div>
             <div>
                 <ul id="navbar">
@@ -69,6 +73,7 @@
                 <i id="bar" class="fas fa-outdent"></i>
             </div>
         </section>
+-->
 
         <div class="left-div">
             <h3>Categories: </h3>
@@ -128,7 +133,7 @@
                             <div class="title_container">
                                 <a id="title" href="produit.php?noArticle=<?php echo $ligne['noArticle']; ?>" ><?php echo $ligne['designation'] ?></a> 
                             </div>
-                            <h4><?php echo $ligne['prix']?> MAD</h4> 
+                            <h4><?php echo number_format($ligne['prix'],2,',',' ') ?> MAD</h4> 
                             <button id="BuyButton" onclick="window.location.href='produit.php?noArticle=<?php echo $ligne['noArticle']; ?>'" >Afficher plus</button>
                         </div>
                         </div>

@@ -5,7 +5,6 @@ session_start();
 
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
-   echo "user id : " . $user_id;
 }else{
    $user_id = '';
 };
@@ -24,7 +23,7 @@ if(isset($_POST['submit'])){
 
    if(mysqli_num_rows($query) > 0){
       $_SESSION['user_id'] = $client['idClient']; 
-      header('location:index.html');
+      header('location:/');
    }else{
       $message[] = 'incorrect username or password!';
    }
@@ -40,8 +39,13 @@ if(isset($_POST['submit'])){
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 </head>
 <body>
+	<?php
+        include 'comp/user_header.php';
+    ?>
 	
 	<div class="limiter">
 		<div class="container-login100">

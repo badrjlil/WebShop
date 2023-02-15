@@ -1,3 +1,7 @@
+<?php
+    $page="home";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,24 +16,10 @@
     
 </head>
 <body style="background-color: black;">
-    <section id="header">
-        <a href="#"><img src="images/logo.png" class="logo" alt=""></a>
-        <div>
-            <ul id="navbar">
-                <li><a class="active" href="index.html">Accueil</a></li>
-                <li><a href="produits.php">Produits</a></li>
-                <li><a href="about.html">À propos de nous</a></li>
-                <li><a href="contact.html">Contactez-nous</a></li>
-                <li id="lg-bag"><a href="card.html"><i class="far fa-shopping-bag"></i></a></li>
-                <li><a href="#"><i class="fa fa-user"></i></a></li>
-                <a href="#" id="close"><i class="far fa-times"></i></a>
-            </ul>
-        </div>
-        <div id="mobile">
-            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
-            <i id="bar" class="fas fa-outdent"></i>
-        </div>
-    </section>
+
+    <?php
+    include 'comp/user_header.php';
+    ?>
 
 
 

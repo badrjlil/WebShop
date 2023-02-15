@@ -1,7 +1,8 @@
 <?php
-  require_once("connexion.php");
-  $sql="SELECT * FROM Commandes ORDER BY date DESC, time DESC";
+  require_once("../connexion.php");
+  $sql="SELECT * FROM Commandes ORDER BY date DESC";
   $articles_query=mysqli_query($connexion,$sql);
+  
 
 ?>
 
@@ -15,51 +16,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 </head>
 <body>
-  <div class="container">
-    <nav>
-    <ul>
-        <li><a href="#" class="logo">
-          <img src="images/logo.png">
-          <span class="nav-item">Admin</span>
-        </a></li>
-        <li><a href="dashboard.php">
-        <div id="left-navbar" >
-          <img src="images/dashboard.png" width="40px" style="margin-left:15px">
-          <span class="nav-item">Dashboard</span>
-        </div>
 
-        </a></li>
-        <li><a href="dashboard_produits.php">
-          <div id="left-navbar">
-            <img src="images/product.png" id="" width="40px" style="margin-left:15px">
-            <span class="nav-item">Produits</span>
-          </div>
-        </a></li>
-        <li><a href="dashboard_commandes.php">
-        <div id="left-navbar">
-          <img src="images/orders.png" width="40px" style="margin-left:15px">
-          <span class="nav-item">Commandes</span>
-        </div>
-        </a></li>
-        <li><a href="#">
-        <div id="left-navbar">
-          <img src="images/inbox.png" width="40px" style="margin-left:15px">
-          <span class="nav-item">Boit de récéption</span>
-        </div>
-        </a></li>
-        <li><a href="#">
-        <div id="left-navbar">
-          <img src="images/customer.png" width="40px" style="margin-left:15px">
-          <span class="nav-item">Clients</span>
-        </div>
-        </a></li>
+<?php include '../comp/admin_header.php';  ?>
 
-        <li><a href="#" class="logout">
-          <i class="fas fa-sign-out-alt"></i>
-          <span class="nav-item">Log out</span>
-        </a></li>
-      </ul>
-    </nav>
 
 
     <section class="main">
