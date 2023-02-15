@@ -39,9 +39,11 @@
       <section class="core">
         <div class="core-item">
             <form action="valider.php" method="post">
+            <h2>Commande #<?php echo sprintf('%05d', $commandes['num'] ) ?></h2>
             <div id="geninfo">
+              
               <div>
-                <h2>Commande #<?php echo sprintf('%05d', $commandes['num'] ) ?></h2>
+                
                 <h4>Date de la commande</h4>
                 <p><?php echo $commandes['date'] ?></p>
                 <h4>Utilisateur</h4>

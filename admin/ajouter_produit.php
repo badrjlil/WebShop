@@ -27,35 +27,36 @@
       <section class="core">
         <div class="core-item">
           <form action="ajouter.php" method="post"  enctype="multipart/form-data">
-            <style>
-              #test{
-                border: black 1px solid;
-              }
-            </style>
             <label>Titre</label>
             <input id="test" name="designation" type="text">
             <br>
+            <div id="geninfo">
+              <div id="catg">
+                <label>Categorie</label>
+                <select name="idCategorie" id="Categ">
+                  <?php
+                    $sql="SELECT * FROM SubCategories";
+                    $query=mysqli_query($connexion,$sql);
+                    while($categorie=mysqli_fetch_assoc($query)){;
+                  ?>
+                  <option value="<?php echo $categorie['idCategorie'] ?>"><?php echo $categorie['nomCategorie'] ?></option>
+                  <?php
+                    }
+                  ?>
+                </select>                
+              </div>
+              <div id="prix">
+                <label>Prix</label>
+                <input type="text" id="test" name="prix">
+              </div>
+              <div id="qte">
+                  <label>Quantité</label>
+                  <input name="quantite" type="text" id="test">
+              </div>
+            </div>            
             <label>Description</label>
             <br>
             <textarea name="description" id="test" cols="60" rows="10"></textarea>
-            <br>
-            <label>Catégorie</label>
-            <br>
-            <select name="idCategorie" id="test">
-              <?php
-                $sql="SELECT * FROM SubCategories";
-                $query=mysqli_query($connexion,$sql);
-                while($categorie=mysqli_fetch_assoc($query)){;
-              ?>
-              <option value="<?php echo $categorie['idCategorie'] ?>"><?php echo $categorie['nomCategorie'] ?></option>
-              <?php
-                }
-              ?>
-            </select>
-            <label>Prix</label>
-            <input type="text" id="test" name="prix">
-            <label>Quantité</label>
-            <input name="quantite" type="text" id="test">
             <br>
             <label>Photos</label>
             <div class="images_container">

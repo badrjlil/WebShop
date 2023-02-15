@@ -4,6 +4,7 @@
   $sql="SELECT * FROM Articles WHERE noArticle = $no_produit";
   $query=mysqli_query($connexion,$sql);
   $article=mysqli_fetch_assoc($query);
+  $categorie_id=$article['idCategorie'];
 ?>
 
 <!DOCTYPE html>
@@ -35,13 +36,36 @@
             <input type="hidden" name="noArticle" value="<?php echo $no_produit ?>">
             <input  name="designation" type="text"  value="<?php echo $article["designation"] ?>">
             <br>
+            <div id="geninfo">
+              <div id="catg">
+                <label>Categorie</label>
+
+                <select name="idCategorie" id="Categ">
+                  <?php
+                    $sql="SELECT * FROM SubCategories";
+                    $query=mysqli_query($connexion,$sql);
+                    while($categorie=mysqli_fetch_assoc($query)){
+                  ?>
+                  <option value="<?php echo $categorie['idCategorie'] ?>" <?php if($categorie['idCategorie']==$categorie_id){ echo "selected";} ?> ><?php echo $categorie['nomCategorie'] ?></option>
+                  <?php
+                    }
+                  ?>
+                </select>
+              </div>
+              <div id="prix">
+                <label>Prix</label>
+                <input type="text"  name="prix" value="<?php echo $article["prix"] ?>">
+              </div>
+              <div id="qte">
+                <label>Quantité</label>
+                <input name="quantite" type="text"  value="<?php echo $article["quantite"] ?>">
+              </div>
+            </div>
             <label>Description</label>
             <br>
             <textarea name="description"  cols="60" rows="10"><?php echo $article["description"] ?></textarea>
-            <label>Prix</label>
-            <input type="text"  name="prix" value="<?php echo $article["prix"] ?>">
-            <label>Quantité</label>
-            <input name="quantite" type="text"  value="<?php echo $article["quantite"] ?>">
+            
+            
             <br>
 
 

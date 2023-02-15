@@ -28,7 +28,7 @@
 
       <section class="core">
         <div class="core-item">
-          <button onclick="window.location.href='ajouter_produit.php'">Ajouter produit</button>
+          <button style="margin:10px; padding: 10px 50px" onclick="window.location.href='ajouter_produit.php'">Ajouter produit</button>
           <table class="table">
             <thead>
               <tr>
