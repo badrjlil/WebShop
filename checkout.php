@@ -7,6 +7,7 @@
  //$panier=mysqli_fetch_assoc($query);
 ?>
 
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
