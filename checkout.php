@@ -1,5 +1,6 @@
 <?php
- require_once("../connexion.php");
+ require_once("connexion.php");
+ echo "test";
  $user_id=$_POST['user_id'];
  $sql="SELECT * FROM Panier WHERE idClient = $user_id ";
  $panier_query=mysqli_query($connexion,$sql);
