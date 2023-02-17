@@ -5,11 +5,11 @@
         $min=$_GET['min'];
         $max=$_GET['max'];
         $keyword=$_GET['keyword'];
-        $sql="SELECT * FROM Articles WHERE prix >= $min and prix <= $max AND designation LIKE '%$keyword%'";
+        $sql="SELECT * FROM Articles WHERE prix >= $min and prix <= $max AND designation LIKE '%$keyword%' AND status = 'active'     ";
     }
     elseif(isset($_GET['categorie'])){
         $id=$_GET['categorie'];
-        $sql="SELECT * FROM Articles a, SubCategories c, Categories m WHERE a.idCategorie = c.idCategorie AND c.categorie = m.idCategorie AND m.idCategorie = $id AND quantite > 0";
+        $sql="SELECT * FROM Articles a, SubCategories c, Categories m WHERE a.idCategorie = c.idCategorie AND c.categorie = m.idCategorie AND m.idCategorie = $id AND quantite > 0 AND a.status = 'active'";
         
     }
     elseif(isset($_GET['subcategorie'])){
@@ -19,12 +19,12 @@
     }elseif(isset($_GET['min']) && isset($_GET['max'])){
         $min=$_GET['min'];
         $max=$_GET['max'];
-        $sql="SELECT * FROM Articles WHERE prix >= $min and prix <= $max";
+        $sql="SELECT * FROM Articles WHERE prix >= $min and prix <= $max AND status = 'active'";
     }elseif(isset($_POST['keyword'])){
         $keyword=$_POST['keyword'];
-        $sql="SELECT * FROM Articles WHERE designation LIKE '%$keyword%'";
+        $sql="SELECT * FROM Articles WHERE designation LIKE '%$keyword%' AND status = 'active'";
     }else{
-        $sql="SELECT * FROM Articles WHERE quantite > 0  ";
+        $sql="SELECT * FROM Articles WHERE quantite > 0 AND status = 'active' ";
         
     }
     
@@ -49,44 +49,19 @@
         <?php
         include 'comp/user_header.php';
         ?>
-<!--
-        <section id="header">
-            <a href="#"><img src="images/logo.png" class="logo" alt=""></a>
-            <div >
-                <form action="" method="post">
-                    <input id="search-box" type="text" class="form-input" placeholder="Rechercher" value="<?php if(isset($_REQUEST['keyword'])){ echo $keyword;} ?>" name="keyword">
-                    <input type="submit" class="form-submit" value="Chercher">
-                </form>      
-            </div>
-            <div>
-                <ul id="navbar">
-                    <li><a class="active" href="index.html">Accueil</a></li>
-                    <li><a href="produits.php">Produits</a></li>
-                    <li><a href="about.html">À propos de nous</a></li>
-                    <li><a href="contact.html">Contactez-nous</a></li>
-                    <li id="lg-bag"><a href="card.html"><i class="far fa-shopping-bag"></i></a></li>
-                    <a href="#" id="close"><i class="far fa-times"></i></a>
-                </ul>
-            </div>
-            <div id="mobile">
-                <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
-                <i id="bar" class="fas fa-outdent"></i>
-            </div>
-        </section>
--->
 
         <div class="left-div">
             <h3>Categories: </h3>
             <ul>
                 <?php
                 while ($row = mysqli_fetch_assoc($categories)) {
-                    echo '<li><a href="produits.php?categorie=' .$row['idCategorie'] . '" class="categories">' . $row['nomCategorie'] . '</a><ul>';
+                    echo '<li><a href="shop.php?categorie=' .$row['idCategorie'] . '" class="categories">' . $row['nomCategorie'] . '</a><ul>';
                     $nomCategorie=$row['idCategorie'];
                     $idCat = $row['idCategorie'];
                     $sql = "select * from SubCategories where categorie = $idCat";
                     $subCategories=mysqli_query($connexion,$sql);
                     while ($categorie = mysqli_fetch_assoc($subCategories)){
-                        echo '<li><a href="produits.php?subcategorie=' . $categorie['idCategorie'] . '" class="categories">' . $categorie['nomCategorie'] . '</a></li>';
+                        echo '<li><a href="shop.php?subcategorie=' . $categorie['idCategorie'] . '" class="categories">' . $categorie['nomCategorie'] . '</a></li>';
                     }
                     echo "</ul></li>";
                 }

@@ -38,43 +38,52 @@
 <section class="core">
         <div class="core-item">
             <form action="update_commande.php" method="post">
-            <h2>Commande #<?php echo sprintf('%05d', $commandes['num'] ) ?></h2>
-            <div id="geninfo">
-              
-              <div>
-                
-                <h4>Date de la commande</h4>
-                <p><?php echo $commandes['date'] ?></p>
-                <h4>Nom d'utlisateur</h4>
-                <p><?php echo $client['prenom'] . " " . $client['nom'] ?></p>
-                <h4>Email adresse</h4>
-                <p><?php echo $client['email'] ?></p>
-                <h4>Status de commande</h4>
+              <div style="text-align:center;">
+                <h2>Commande #<?php echo sprintf('%05d', $commandes['num'] ) ?></h2>
+                <h4>Status de commande:</h4>
                 <select id="selectElement" name="status">
-                    <option value="Pending">Pending</option>
-                    <option value="Shipped">Shipped</option>
-                    <option value="Canceled">Canceled</option>
-                </select>
+                  <option value="Pending">Pending</option>
+                  <option value="Shipped">Shipped</option>
+                  <option value="Canceled">Canceled</option>
+                  </select> 
               </div>
-              <div id="clinfo">
-                <h4>Nom complet</h4>
+            <div id="geninfo">  
+              <div>
+                <h4>Date de la commande:</h4>
+                <p><?php echo $commandes['date'] ?></p>
+                <h4>Nom d'utlisateur:</h4>
+                <p><?php echo $client['prenom'] . " " . $client['nom'] ?></p>
+                <h4>Email adresse:</h4>
+                <p><?php echo $client['email'] ?></p>
+                
+                
+              </div>
+              <div>
+              <h4>Nom complet:</h4>
                 <p><?php echo $adresse['prenom'] . " " . $adresse['nom'] ?></p>
-                <h4>Adresse</h4>
+                <h4>Adresse:</h4>
                 <p><?php echo $adresse['adresse'] ?></p>
-                <h4>Ville</h4>
+                <h4>Téléphone</h4>
+                <p><?php echo "+212 " . substr_replace($adresse['telephone'], '-', 3, 0) ?></p>
+
+                
+              </div>
+              
+
+              <div>
+                <h4>Ville:</h4>
                 <p><?php echo $adresse['ville'] ?></p>
-                <h4>Région</h4>
+                <h4>Région:</h4>
                 <p><?php echo $adresse['region'] ?></p>
                 <h4>Code postal</h4>
                 <p><?php echo $adresse['zip'] ?></p>
-                <h4>Téléphone</h4>
-                <p><?php echo "+212 " . substr_replace($adresse['telephone'], '-', 3, 0) ?></p>
-                </div>
-                </div>
+                
+              </div>
+            </div>
+
+
                 <h4>Produits commandés</h4>
                 
-                
-
                 <table class="table">
                   <thead>
                     <tr>
@@ -114,9 +123,13 @@
                   
               </table>
               <input type="hidden" name="num" value="<?php echo $commandes['num'] ?>">
-                    <input type="submit" value="Valider">
+                    
+                    <div id="total">
                     <h4>Total</h4>
                     <p><?php echo number_format($total, 2, ',', ' ')  . " MAD"  ?></p>
+                    <input type="submit" value="Valider">
+                    </div>
+                    
             </form>
             <script>
                 document.getElementById("selectElement").value = "<?php echo $commandes['status'] ?>";

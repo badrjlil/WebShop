@@ -30,7 +30,6 @@
           <th>Total</th>
           <th>Status</th>
           <th>Date</th>
-          <th>Time</th>
           <th>Details</th>
         </tr>
         <?php
@@ -38,7 +37,7 @@
               while($orders=mysqli_fetch_assoc($articles_query)){
                 $lines++;
               ?>
-              <tr <?php  if($orders['status'] == "Pending"){ echo "style='background-color: #272c6a'";} ?>>
+              <tr <?php  if($orders['status'] == "Pending"){ echo "style='background-color: #ec7e0020'";} ?>>
                 <td><?php echo sprintf('%05d', $orders['num']);  ?></td>
                 <?php 
                   $idClient=$orders['idClient'];
@@ -53,8 +52,7 @@
                 <td><?php echo $client['prenom'] . " " . $client['nom'] ?></td>
                 <td><?php echo number_format($orders['prix_total'], 2, ',', ' ')  . " MAD" ?></td>
                 <td><?php echo $orders['status'] ?></td>
-                <td><?php echo $orders['date'] ?></td>
-                <td><?php echo date("H:i", strtotime($orders['time'])) ?></td>
+                <td><?php echo date("d-m-Y", strtotime($orders['date']))   ?></td>
                 <td><button onclick="window.location.href='order.php?num=<?php echo $orders['num'] ?>'">Afficher</button></td>
               </tr>
               <?php

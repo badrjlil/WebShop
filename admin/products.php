@@ -1,6 +1,12 @@
 <?php
   require_once("../connexion.php");
-  $sql="SELECT * FROM Articles ORDER BY noArticle DESC";
+  if(isset($_GET['keyword'])){
+    $keyword=$_GET['keyword'];
+    $sql="SELECT * FROM Articles WHERE designation like '%$keyword%' AND status = 'active' ORDER BY noArticle DESC";
+  }else{
+    $sql="SELECT * FROM Articles WHERE status = 'active' ORDER BY noArticle DESC";
+  }
+  
   $articles_query=mysqli_query($connexion,$sql);
 ?>
 
@@ -20,12 +26,23 @@
 
 </body>
 <?php include '../comp/admin_header.php';  ?>
-<button style="margin:10px; padding: 10px 50px" onclick="window.location.href='add_product.php'">Ajouter produit</button>
+    <div id="searchbar" >
+        <form action="" action="get">
+          <div style="display:inline-block;"><input type="text" name="keyword"></div>
+          <div style="display:inline-block;"><input id="search-btn" type="submit" value="Rechercher"></div>
+        </form>
+    </div>
+
+    <br>
+
 		<div class="box-8">
+    <button style="margin:10px; padding: 10px 50px" onclick="window.location.href='add_product.php'">Ajouter produit</button>
+
+    
 		<div class="content-box">
 			<p>Les Commandes</p>
 			<br/>
-      <table>
+      <table align="center">
         <tr>
             <th>Photo</th>
             <th>Nom</th>
@@ -33,7 +50,7 @@
             <th>Prix</th>
             <th>Catégorie</th>
             <th>Date</th>
-            <th>Details</th>
+            <th>Action</th>
         </tr>
         <?php
               $lines=0;
@@ -65,7 +82,9 @@
                 <td><?php echo $categorie['nomCategorie'] . "/" . $sub_categorie['nomCategorie'] ?></td>
                 <td><?php echo date("d-m-Y", strtotime($article['date'])) ?></td>
                 
-                <td><button onclick="window.location.href='modify_product.php?noArticle=<?php echo $article['noArticle'] ?>'">Modifier</button></td>
+                <td><a style="text-decoration: none;" href="modify_product.php?noArticle=<?php echo $article['noArticle'] ?>"> <i id="edit-icon"  class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;</a>
+                <a href="delete.php?noArticle=<?php echo $article['noArticle'] ?>"> <i id="edit-icon"  class="fa fa-trash" aria-hidden="true"></i></a>
+                </td>
               </tr>
               <?php 
               } 

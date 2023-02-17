@@ -175,10 +175,11 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  margin-bottom: 5%;
   
 }
 td, th {
-  text-align: left;
+  text-align: center;
   padding:15px;
   color: #ddd;
   border-bottom: 1px solid #81818140;
@@ -263,10 +264,18 @@ td, th {
 .images{
   height: 60%;
 }
+
+#selectElement{
+  text-align: center;
+  width: 50%;
+}
+
+
 #geninfo{
   display: flex;
   justify-content:space-between;
-  margin: 0% 15%;
+  margin: 3% 5%;
+  margin-bottom: 5%;
 }
 #clinfo{
 width:50%;
@@ -281,25 +290,52 @@ margin-block: 40px;
 
 #qte{
   width: 20%;
-  margin-right: 5%;
 }
 
+#total{
+  margin-top: -2%;
+  text-align: center;
+  margin-left: 80%;
+}
 
-#Categ{
+#valider-btn{
+  align-items: right;
+}
+
+select{
   border: 1px solid #cccccc;
   border-radius: 5px;
   width: 100%;
-  margin:10px;
   padding:8px
 }
-input[type="text"],
+input[type="text"],input[type="submit"],button,
 textarea {
   background-color: #292f50;
   padding: 10px 0px;
   font-size: 16px;
-  width: 100%;
+  width: 98%;
   border-radius: 5px;
   border: 1px solid #cccccc;
   margin-top: 10px;
   color: white;
+}
+input[type="submit"],button,#edit-icon
+{
+  cursor: pointer;
+}
+
+#edit-icon{
+  text-decoration: none;
+  color: white;
+}
+
+#searchbar form{
+  width: fit-content;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#search-btn{
+  padding: 10px 20px;
 }

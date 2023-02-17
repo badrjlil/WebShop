@@ -16,7 +16,7 @@
   <a href="index.php" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
   <a href="products.php"class="icon-a"><i class="fa fa-tasks icons"></i> &nbsp;&nbsp;Produits</a>
   <a href="orders.php"class="icon-a"><i class="fa fa-shopping-bag icons"></i> &nbsp;&nbsp;Commandes</a>
-  <a href="#"class="icon-a"><i class="fa fa-inbox icons"></i> &nbsp;&nbsp;Boîte de réception</a>
+  <a href="inbox.php"class="icon-a"><i class="fa fa-inbox icons"></i> &nbsp;&nbsp;Boîte de réception</a>
   <a href="#"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Comptes</a>
 </div>
 

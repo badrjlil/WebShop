@@ -55,7 +55,7 @@
 	<div class="col-div-8">
 		<div class="box-8">
 		<div class="content-box">
-			<p>Commandes en attente <span>Afficher tout</span></p>
+			<p>Commandes en attente <span><a href="orders.php" style="text-decoration:none; color:#f7403b; font-weight:bold;">Afficher tout</a></span></p>
 			<br/>
       <table>
         <tr>
@@ -118,7 +118,7 @@ $reponse=mysqli_query($connexion,$requete);
   <div class="col-div-5">
   <div class="box-4">
 		<div class="content-box">
-			<p>Messages non lus <span>Afficher tout</span></p>
+			<p>Messages non lus <span><a href="inbox.php" style="text-decoration:none; color:#f7403b; font-weight:bold;">Afficher tout</a></span></p>
 			<br/>
       <table>
         <tr>

@@ -21,7 +21,7 @@
 
 <section class="core">
         <div class="core-item">
-          <form action="ajouter.php" method="post"  enctype="multipart/form-data">
+          <form action="add.php" method="post"  enctype="multipart/form-data">
             <label>Titre</label>
             <input id="test" name="designation" type="text">
             <br>
