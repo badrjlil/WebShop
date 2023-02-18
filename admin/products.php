@@ -28,7 +28,7 @@
 <?php include '../comp/admin_header.php';  ?>
     <div id="searchbar" >
         <form action="" action="get">
-          <div style="display:inline-block;"><input type="text" name="keyword"></div>
+          <div style="display:inline-block;"><input type="text" name="keyword" value="<?php echo $keyword?>"></div>
           <div style="display:inline-block;"><input id="search-btn" type="submit" value="Rechercher"></div>
         </form>
     </div>
