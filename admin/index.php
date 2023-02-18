@@ -1,13 +1,13 @@
 <?php
   require_once("../connexion.php");
-  $sql="SELECT * FROM Commandes WHERE status = 'Pending' ORDER BY date DESC";
+  $sql="SELECT * FROM Commandes WHERE status = 'En attente' ORDER BY num DESC";
   $pending_commande=mysqli_query($connexion,$sql);
   
-  $sql="SELECT COUNT(*) AS 'total_orders', SUM(prix_total) AS 'total_earning' FROM Commandes WHERE status != 'Canceled'";
+  $sql="SELECT COUNT(*) AS 'total_orders', SUM(prix_total) AS 'total_earning' FROM Commandes WHERE status != 'Annule'";
   $total=mysqli_fetch_assoc(mysqli_query($connexion,$sql));
-  $sql="SELECT COUNT(*) AS 'total' FROM Articles WHERE quantite <1";
+  $sql="SELECT COUNT(*) AS 'total' FROM Articles WHERE quantite <1 AND status = 'active'";
   $outofstock=mysqli_fetch_assoc(mysqli_query($connexion,$sql));
-  $sql="SELECT COUNT(*) AS 't_p' FROM Commandes WHERE status = 'Pending'";
+  $sql="SELECT COUNT(*) AS 't_p' FROM Commandes WHERE status = 'En attente'";
   $total_pending_orders=mysqli_fetch_assoc(mysqli_query($connexion,$sql));
 ?>
 
@@ -110,7 +110,7 @@
 	</div>
 <?php
 require_once("../connexion.php");
-$requete="select prenom, nom ,substr(message,1,20) as messageko,Statut from messages where Statut='Unread'";
+$requete="select prenom, nom ,substr(message,1,20) as messageko,statut from messages where Statut='Unread'";
 
 $reponse=mysqli_query($connexion,$requete);
 ?>

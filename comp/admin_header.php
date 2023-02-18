@@ -14,10 +14,10 @@
 <div id="mySidenav" class="sidenav">
 	<p class="logo"><span>J</span>ade Shop</p>
   <a href="index.php" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
-  <a href="products.php"class="icon-a"><i class="fa fa-tasks icons"></i> &nbsp;&nbsp;Produits</a>
-  <a href="orders.php"class="icon-a"><i class="fa fa-shopping-bag icons"></i> &nbsp;&nbsp;Commandes</a>
-  <a href="inbox.php"class="icon-a"><i class="fa fa-inbox icons"></i> &nbsp;&nbsp;Boîte de réception</a>
-  <a href="#"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Comptes</a>
+  <a href="products.php" class="icon-a"><i class="fa fa-tasks icons"></i> &nbsp;&nbsp;Produits</a>
+  <a href="orders.php" class="icon-a"><i class="fa fa-shopping-bag icons"></i> &nbsp;&nbsp;Commandes</a>
+  <a href="inbox.php" class="icon-a"><i class="fa fa-inbox icons"></i> &nbsp;&nbsp;Boîte de réception</a>
+  <a href="users.php" class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Comptes</a>
 </div>
 
 
@@ -25,8 +25,8 @@
 
 	<div class="head">
 		<div class="col-div-6">
-<span style="font-size:30px;cursor:pointer; color: white;" class="nav"  >&#9776; Dashboard</span>
-<span style="font-size:30px;cursor:pointer; color: white;" class="nav2"  >&#9776; Dashboard</span>
+<span style="font-size:30px;cursor:pointer; color: white;" class="nav"  >&#9776; Tableau de bord</span>
+<span style="font-size:30px;cursor:pointer; color: white;" class="nav2"  >&#9776; Tableau de bord</span>
 </div>
 	
 	<div class="col-div-6">

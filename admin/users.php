@@ -7,9 +7,9 @@ if(isset($_GET['lpage'])){
 }
 if(isset($_GET['keyword'])){
   $keyword=$_GET['keyword'];
-  $sql="SELECT id, nom, email, prenom, substr(message,1,40) AS messageko, statut, date FROM messages WHERE nom like '%$keyword%' OR prenom like '%$keyword%' OR email like '%$keyword%' ";
+  $sql="select idClient, prenom, nom, email, type from Clients WHERE nom like '%$keyword%' OR prenom like '%$keyword%' OR email like '%$keyword%' ";
 }else{
-  $sql="select id,nom, email, prenom,substr(message,1,40) as messageko,statut,date from messages";
+  $sql="select idClient, prenom, nom, email, type from Clients";
 }
 
 $reponse=mysqli_query($connexion,$sql);
@@ -45,10 +45,9 @@ $reponse=mysqli_query($connexion,$sql);
                   <thead>
                     <tr>
                       <th>Nom</th>
+                      <th>Prenom</th>
                       <th>Email</th>
-                      <th>Message</th>
-                      <th>Date</th>
-                      <th>Status</th>
+                      <th>Type</th>
                       <th>Action</th>
                       
 
@@ -65,12 +64,11 @@ $reponse=mysqli_query($connexion,$sql);
                    
                     ?>
                     <tr <?php  if($row[$i]['statut'] == "Unread"){ echo "style='background-color: #ec7e0020'";} ?>>
-                      <td><?php  echo $row[$i]['nom'] . " "  .  $row[$i]['prenom'] ;?></td>
-                      <td><?php  echo $row[$i]['email'] ;?></td>
-                      <td><?php echo $row[$i]['messageko'] . "..." ?></td>
-                      <td><?php  echo date("d-m-Y", strtotime($row['date']))?></td>
-                      <td><?php  echo $row[$i]['statut'] ?></td>
-                      <td><button onclick="window.location.href='message.php?id=<?php echo $row[$i]['id'] ?>'">Afficher</button></td>
+                      <td><?php  echo $row[$i]['nom']?></td>
+                      <td><?php  echo $row[$i]['prenom'] ;?></td>
+                      <td><?php echo $row[$i]['email'] . "..." ?></td>
+                      <td><?php  echo $row[$i]['type'] ?></td>
+                      <td><button onclick="window.location.href='users.php?id=<?php echo $row[$i]['id'] ?>'">Modifier</button></td>
                     </tr>
                   <?php
                     if($lines==8){

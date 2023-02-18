@@ -19,7 +19,7 @@ body{
 	color: #f7403b;
 }
 .sidenav {
-  height: 100%;
+  height: 140%;
   width: 300px;
   position: fixed;
 
@@ -217,7 +217,7 @@ td, th {
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(180deg);
+    transform: rotate(126deg);
   }
 }
 .circle-wrap .inside-circle {
@@ -332,8 +332,7 @@ input[type="submit"],button,#edit-icon
 #searchbar form{
   width: fit-content;
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  right: -72%;
 }
 
 #search-btn{

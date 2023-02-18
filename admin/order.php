@@ -42,9 +42,9 @@
                 <h2>Commande #<?php echo sprintf('%05d', $commandes['num'] ) ?></h2>
                 <h4>Status de commande:</h4>
                 <select id="selectElement" name="status">
-                  <option value="Pending">Pending</option>
-                  <option value="Shipped">Shipped</option>
-                  <option value="Canceled">Canceled</option>
+                  <option value="En attente">En attente</option>
+                  <option value="Expedie">Expédié</option>
+                  <option value="Annule">Annulé</option>
                   </select> 
               </div>
             <div id="geninfo">  

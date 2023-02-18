@@ -1,5 +1,12 @@
 <?php
   require_once("../connexion.php");
+
+  if(isset($_GET['lpage'])){
+    $lpage=$_GET['lpage'];
+  }else{
+    $lpage=0;
+  }
+
   if(isset($_GET['keyword'])){
     $keyword=$_GET['keyword'];
     $sql="SELECT * FROM Articles WHERE designation like '%$keyword%' AND status = 'active' ORDER BY noArticle DESC";
@@ -53,23 +60,25 @@
             <th>Action</th>
         </tr>
         <?php
-              $lines=0;
-              while($article=mysqli_fetch_assoc($articles_query)){
-                $lines++;
+        $article=mysqli_fetch_all($articles_query,MYSQLI_ASSOC);
+        $nbr= count($article);
+        $start=$lpage*8;
+        for ($i = $start; $i < $nbr; $i++) {
+          $lines+=1;
               ?>
               <tr>
                 <?php
-                $no_produit=$article['noArticle'];
+                $no_produit=$article[$i]['noArticle'];
                 $sql="SELECT photo1 FROM Photos WHERE noArticle = $no_produit";
                 $query=mysqli_query($connexion,$sql);
                 $photo_produit=mysqli_fetch_assoc($query);
                 ?>
                 <td><img src="<?php echo "../" . $photo_produit['photo1'] ?>" style="height: 70px;"></td>
-                <td><?php echo $article['designation'] ?></td>
-                <td><?php echo $article['quantite'] ?></td>
-                <td><?php echo number_format($article['prix'], 2, ',', ' ')  . " MAD" ?></td>
+                <td><?php echo $article[$i]['designation'] ?></td>
+                <td><?php echo $article[$i]['quantite'] ?></td>
+                <td><?php echo number_format($article[$i]['prix'], 2, ',', ' ')  . " MAD" ?></td>
                 <?php
-                  $idSubCategorie=$article['idCategorie'];
+                  $idSubCategorie=$article[$i]['idCategorie'];
                   $sql="SELECT * FROM SubCategories WHERE idCategorie = $idSubCategorie";
                   $query=mysqli_query($connexion,$sql);
                   $sub_categorie=mysqli_fetch_assoc($query);
@@ -80,16 +89,31 @@
 
                 ?>
                 <td><?php echo $categorie['nomCategorie'] . "/" . $sub_categorie['nomCategorie'] ?></td>
-                <td><?php echo date("d-m-Y", strtotime($article['date'])) ?></td>
+                <td><?php echo date("d-m-Y", strtotime($article[$i]['date'])) ?></td>
                 
-                <td><a style="text-decoration: none;" href="modify_product.php?noArticle=<?php echo $article['noArticle'] ?>"> <i id="edit-icon"  class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;</a>
-                <a href="delete.php?noArticle=<?php echo $article['noArticle'] ?>"> <i id="edit-icon"  class="fa fa-trash" aria-hidden="true"></i></a>
+                <td><a style="text-decoration: none;" href="modify_product.php?noArticle=<?php echo $article[$i]['noArticle'] ?>"> <i id="edit-icon"  class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;</a>
+                <a href="delete.php?noArticle=<?php echo $article[$i]['noArticle'] ?>"> <i id="edit-icon"  class="fa fa-trash" aria-hidden="true"></i></a>
                 </td>
               </tr>
+              
               <?php 
-              } 
+                if($lines==8){
+                  break;
+                }
+              }
               ?>     
       </table>
+      <div style="display:flex; width :10%; margin-left:50%; transform: translate(-50%, -50%);">
+      <?php
+        for($j=0;$j<(ceil($nbr/8));$j++){
+          echo '<button style="margin :0% 5%" onclick="window.location.href=\'products.php?';
+          if(isset($_GET['keyword'])){
+            echo "keyword=" . $keyword . "&";
+          }
+          echo "lpage=" . $j . "'\">" . $j+1 . "</button>";
+        }
+      ?>
+      </div>
 		</div>
 	</div>
 	</div>
