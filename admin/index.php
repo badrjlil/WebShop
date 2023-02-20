@@ -81,7 +81,7 @@
           <td><?php echo $client['prenom'] . " " . $client['nom'] ?></td>
           <td><?php echo number_format($orders['prix_total'], 2, ',', ' ')  . " MAD" ?></td>
           <td><?php echo date('Y-m-d', strtotime($orders['date'])) ?></td>                
-          <td><button onclick="window.location.href='commande.php?num=<?php echo $orders['num'] ?>'">Afficher</button></td>
+          <td><button onclick="window.location.href='order.php?num=<?php echo $orders['num'] ?>'">Afficher</button></td>
         </tr>
         <?php if($lines==9){break;}} ?>             
       </table>

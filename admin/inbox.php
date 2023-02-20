@@ -39,7 +39,7 @@ $reponse=mysqli_query($connexion,$sql);
 <br>  
 <div class="box-8">
 		<div class="content-box">
-			<p>Les Commandes</p>
+			<p>Les messages</p>
 			<br/>
       <table class="table">
                   <thead>

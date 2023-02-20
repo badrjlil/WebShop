@@ -33,7 +33,7 @@
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_old.css">
 </head>
 
 <body>
@@ -48,7 +48,7 @@
         
     ?>
 
-    <section id="cart" class="section-p1">
+    <section style="margin-top:90px" id="cart" class="section-p1">
         <table width="100%">
             <thead>
                 <tr>

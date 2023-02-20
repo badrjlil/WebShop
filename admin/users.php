@@ -66,7 +66,7 @@ $reponse=mysqli_query($connexion,$sql);
                     <tr <?php  if($row[$i]['statut'] == "Unread"){ echo "style='background-color: #ec7e0020'";} ?>>
                       <td><?php  echo $row[$i]['nom']?></td>
                       <td><?php  echo $row[$i]['prenom'] ;?></td>
-                      <td><?php echo $row[$i]['email'] . "..." ?></td>
+                      <td><?php echo $row[$i]['email'] ?></td>
                       <td><?php  echo $row[$i]['type'] ?></td>
                       <td><button onclick="window.location.href='users.php?id=<?php echo $row[$i]['id'] ?>'">Modifier</button></td>
                     </tr>

@@ -1,16 +1,15 @@
 <?php
-    if(isset($message)){
-        foreach($message as $message){
-            echo '
-            <div style="background-color: black;" class="message">
-                <span>'.$message.'</span>
-                <i class="fas fa-times" id="close-button" onclick="this.parentElement.remove();"></i>
-            </div>
-            ';
-        }
-    }
-?>
+session_start();
+if(isset($_SESSION['user_id'])){
+  $user_id = $_SESSION['user_id'];
+  $sql="SELECT prenom, nom FROM Clients WHERE idClient = $user_id";
+  $query_user=mysqli_query($connexion,$sql);
+  $user=mysqli_fetch_assoc($query_user);
+}else{
+  header("location:login.php");
+};
 
+?>
 <div id="mySidenav" class="sidenav">
 	<p class="logo"><span>J</span>ade Shop</p>
   <a href="index.php" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
@@ -32,7 +31,7 @@
 	<div class="col-div-6">
 	  <div class="profile">
       <img src="images/user.png" class="pro-img" />
-      <p>Manoj Adhikari <span>UI / UX DESIGNER</span></p>
+      <p><?php echo $user['prenom'] . " " . $user['nom'] ?> <span><a style=" color:gray;" href="admin_logout.php">Log Out</a></span></p>
   </div>
   </div>
 	<div class="clearfix"></div>

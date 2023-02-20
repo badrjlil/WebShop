@@ -39,7 +39,7 @@
         
         <title>WebShop - Produits</title>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-        <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="style.css">
         <script src="script.js" defer></script>
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     </head>
@@ -49,7 +49,7 @@
         <?php
         include 'comp/user_header.php';
         ?>
-
+    <section style="padding-top:80px">
         <div class="left-div">
             <h3>Categories: </h3>
             <ul>
@@ -124,5 +124,6 @@
                     ?>
             </div>
         </section>
+    </section>
     </body>
 </html>

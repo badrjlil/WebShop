@@ -19,15 +19,11 @@ if(isset($_POST['submit'])){
    $sql="SELECT * FROM Clients WHERE email = '$email' AND password = '$pass'";
    $query=mysqli_query($connexion,$sql);
    $client=mysqli_fetch_assoc($query);
-   /*$select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ?");
-   $select_user->execute([$email, $pass]);
-   $row = $select_user->fetch(PDO::FETCH_ASSOC);*/
+
 
    if(mysqli_num_rows($query) > 0){
       $_SESSION['user_id'] = $client['idClient']; 
       header('location:user_login.php');
-   }else{
-      $message[] = 'incorrect username or password!';
    }
 
 }

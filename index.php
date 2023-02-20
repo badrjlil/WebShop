@@ -1,79 +1,170 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <script src="script.js" lang="javascript"></script>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebShop</title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <title>Apple</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="responsive.css">
+    <!-- <link rel="stylesheet" href="reset.css"> buat reset css -->
+    <link rel="shortcut icon" type="image/jpg" href="./img/apple-logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+        crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     
 </head>
-<body style="background-color: black;">
 
-    <?php
+<body>
+    <!-- Bagian header-->
+<?php
     include 'comp/user_header.php';
-    ?>
+?>
+    <!-- header -->
+
+    <main>
+
+        <!-- Bagian content atas -->
 
 
+        <div class="container">
+            <div class="contents">
+                <div class="image-container" onclick="location.href='https://www.apple.com/iphone-12/';" style="cursor: pointer;">
+                    <div class="iphone-12">
+                        <div class="title">
+                            <h1>iPhone 14</h1>
+                            <p>Passez vite.</p>
+                        </div>
+                        <div class="cta-links">
+                            <a href="#" class="learn-more-link">Afficher plus ></a>
+                            <a href="#" class="buy-link">Acheter ></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container" onclick="location.href='https://www.apple.com/iphone-12-pro/';" style="cursor: pointer;">
+                    <div class="iphone-12-pro">
+                        <div class="title">
+                            <h1>iPhone 14 Pro</h1>
+                            <p>C'est une année bissextile.</p>
+                        </div>
+                        <div class="cta-links">
+                            <a href="#" class="learn-more-link">Afficher plus ></a>
+                            <a href="#" class="buy-link">Acheter ></a>
+                        </div>
+                    </div>
+                </div>
 
-    <section id="title">
-        <h2 style="color: white;">Introducing the new</h2>
-        <h2 style="color: white;">MacBook Pro and Mac mini.</h2>
-        
-        <button class="btn-gradient-2">Voir Les Nouveau Modelle</button>
-        
+        <div class="title">
+                    <h1 class="hello">Fitness+</h1>
+                    <p class="A">Une nouvelle expérience de remise en forme pour tous.</p>
+                    <div class="cta-links">
+                        <a href="https://www.apple.com/apple-fitness-plus/" class="buy-link">Afficher plus ></a>
+                    </div>
+                <div class="image-container">
+                <div class="fitness" onclick="location.href='https:https://www.apple.com/apple-fitness-plus/';" style="cursor: pointer;"></div>    
+                    </div>
+</div>
+</div>
 
-    </section>
-
-    <section id="title2">
-    <h2 style="color: white;">Macbook Pro</h2>
-    <h3 style="color: white;">Super Charged By M2 Pro And M2 Max</h3>
-    <p style="color: rgb(94, 90, 90);">Available Now</p>
-    <li><a href="">Order Now > </a></li>
-    <img src="images/capture1.png" style="width:100%">
-    </section>
-
-
-    <section id="title2">
-        <h2 style="color: white;">Mac Mini</h2>
-        <h3 style="color: white;">Super Charged By M2 Pro And M2 Max</h3>
-        <p style="color: rgb(94, 90, 90);">Available Now</p>
-        <li><a href="">Order Now > </a></li>
-        <img src="images/capture4.png" style="width:100%">
-        </section>
-
-
-    <section id="title3">
-        <div class="div1">
-        <h2 style="color: white;">Iphone 14</h2>
-        <h3 style="color: white;">Pro , Pro Max</h3>
-        <p style="color: rgb(94, 90, 90);">Available Now</p>
-        <li><a href="">Order Now > </a></li>
-        <img src="images/capture3.png" style="width:100%">
+            </div>
         </div>
 
-        <div class="div2">
 
-        <h2 style="color: white;">Apple Watch</h2>
-        <h3 style="color: white;">Serie 8</h3>
-        <p style="color: rgb(94, 90, 90);">Available Now</p>
-        <li><a href="">Order Now > </a></li>
-        <img src="images/capture2.png" style="width:100%">
-        </div>
-    </section>
+        <ul class="flex-list">
+            <li class="li1 content">
 
-   
+                <div class="theme-dark container-main"
+                    onclick="location.href='https://www.apple.com/apple-watch-series-6/';" style="cursor: pointer;">
+                    <div class="unit-copy-wrapper">
+                        <img class="apple-watch-logo" src="./img/apple-watch-logo.png" alt="apple-watch-logo">
+                        <h2 class="headline">L'avenir de la santé est à votre poignet.</h2>
+                    </div>
+                    <div class="cta-links">
+                        <a href="https://www.apple.com/apple-watch-series-6/" class="learn-more-link">Afficher plus ></a>
+                        <a href="https://www.apple.com/shop/buy-watch/apple-watch" class="buy-link">Acheter ></a>
+                    </div>
+                    <div class="unit-image">
+                        <figure>
+                            <img src="./img/apple-watch-6.png" alt="apple-watch">
+                        </figure>
+                    </div>
+                </div>
+            </li>
 
+            <li class="li2 content">
+
+                <div class="theme-light container-main" onClick="location.href='https://www.apple.com/ipad-air/';"
+                    style="cursor: pointer;">
+                    <div class="unit-copy-wrapper">
+                        <img class="apple-watch-logo" src="./img/ipad-air-logo.png" alt="">
+                        <h2 class="headline">Puissant. Coloré. Merveilleux.</h2>
+                    </div>
+                    <div class="cta-links">
+                        <a href="" class="learn-more-link">Afficher plus ></a>
+                        <a href="" class="buy-link">Acheter ></a>
+                    </div>
+                    <div class="unit-image">
+                        <figure>
+                            <img src="./img/ipad-air.png" alt="ipad-air" style="width: 70%;">
+                        </figure>
+                    </div>
+                </div>
+            </li>
+
+            <li class="li3 content">
+
+                <div class="theme-dark container-main" onclick="location.href='https://www.apple.com/macbook-air/';" style="cursor: pointer;">
+                    <div class="unit-copy-wrapper">
+                        <img class="mackbook-air-logo" src="./img/macbook-air-logo.png" alt=""
+                            style="width: 35%; margin-top: 55px;">
+                        <h2 class="headline">Pouvoir. C'est dans l'air.</h2>
+                    </div>
+                    <div class="cta-links">
+                        <a href="" class="learn-more-link">Afficher plus ></a>
+                        <a href="" class="buy-link">Acheter ></a>
+                    </div>
+                    <div class="unit-image">
+                        <figure>
+                            <img src="./img/macbook-air.png" alt="" style="width: 100%; height: 100%;">
+                        </figure>
+                    </div>
+                </div>
+            </li>
+
+            <li class="li4 content">
+
+                <div class="theme-light container-main" onclick="location.href='https://www.apple.com/apple-one/'" style="cursor: pointer;">
+                    <div class="unit-copy-wrapper">
+                        <img src="./img/apple-one-logo.png" alt="" style="width: 30%; margin-top: 20px;">
+                        <h2 class="headline">Regroupez jusqu'à six services Apple.<br>Et profitez de plus pour moins cher</h2>
+                    </div>
+                    <div class="cta-links">
+                        <a href="" class="learn-more-link">Afficher plus ></a>
+                        <a href="" class="buy-link">Acheter ></a>
+                    </div>
+                    <div class="unit-image">
+                        <figure>
+                            <img src="./img/apple-one.png" alt="apple-one" style="width: 80%;">
+                        </figure>
+                    </div>
+                </div>
+            </li>
+            
+        </ul>
+    </main>
+
+    <!-- Bagian footer-->
     <footer class="section-p1">
         <div class="col"  style="color: white;">
             <img class="logo" src="images/logo.png" alt="">
             <h4>Contact</h4>
-            <p  style="color: white;"><strong>Address: </strong> ain sebaa, casablanca, maroc</p>
-            <p  style="color: white;"><strong>Téléphoner:</strong> +212 6 84 06 35 95 </p>
+            <p  style="color: white;"><strong>Address: </strong> IGA - Belvédère, Casablanca, Maroc</p>
+            <p  style="color: white;"><strong>Téléphoner:</strong> +212 6 12 34 56 78 </p>
             <p  style="color: white;"><strong>Heures:</strong> 9:00 - 18:00, Lun - Sam</p>
             <div class="follow">
                 <h4>Suivez-nous</h4>
@@ -89,19 +180,19 @@
 
         <div class="col">
             <h4>About</h4>
-            <a href="#">About Us</a>
+            <a href="#">À propos de nous</a>
             <a href="#">Informations de livraison</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Contact Us</a>
+            <a href="#">Politique de confidentialité</a>
+            <a href="#">Termes et conditions</a>
+            <a href="#">Contactez-nous</a>
         </div>
 
         <div class="col" style="color: white;">
             <h4>Mon Compte</h4>
-            <a href="#">Sign In</a>
-            <a href="#">Voir Le Panier</a>
-            <a href="#">Ma Liste D'envies</a>
-            <a href="#">Suivre Ma Commande</a>
+            <a href="#">S'identifier</a>
+            <a href="#">Voir le panier</a>
+            <a href="#">Ma Liste d'envies</a>
+            <a href="#">Suivre ma commande</a>
             <a href="#">Aider</a>
         </div>
 
@@ -117,11 +208,11 @@
         </div>
 
         <div class="copyright">
-            <p style="color: white;">©2023 Online Ecommerce Shop | Créé Par Omar Elfarah Badr Jlil Yasser Zamel</p>
+            <p style="color: white;">©2023 Online Ecommerce Shop</p>
         </div>
     </footer>
 
-
+    
 
 </body>
 </html>

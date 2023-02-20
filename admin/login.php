@@ -1,5 +1,5 @@
 <?php
-require_once("connexion.php");
+require_once("../connexion.php");
 
 session_start();
 
@@ -14,18 +14,13 @@ if(isset($_POST['submit'])){
    $email = $_POST['email'];
    $pass = $_POST['pass'];
 
-   $sql="SELECT * FROM Clients WHERE email = '$email' AND password = '$pass' AND type = 'Utilisateur'";
+   $sql="SELECT * FROM Clients WHERE email = '$email' AND password = '$pass' AND type = 'Administrateur'";
    $query=mysqli_query($connexion,$sql);
    $client=mysqli_fetch_assoc($query);
-   /*$select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ?");
-   $select_user->execute([$email, $pass]);
-   $row = $select_user->fetch(PDO::FETCH_ASSOC);*/
 
    if(mysqli_num_rows($query) > 0){
       $_SESSION['user_id'] = $client['idClient']; 
-      header('location:/');
-   }else{
-      $message[] = 'incorrect username or password!';
+      header('location:index.php');
    }
 
 }
@@ -37,21 +32,21 @@ if(isset($_POST['submit'])){
 	<title>WebShop - Connexion</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" type="text/css" href="../css/util.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" href="../style.css">
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 </head>
 <body>
 	<?php
-        include 'comp/user_header.php';
+        include 'comp/admin_header.php';
     ?>
 	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="images/img-01.png" alt="IMG">
+					<img src="../images/img-01.png" alt="IMG">
 				</div>
 
 				<form action="" method="post" class="login100-form validate-form">
@@ -80,11 +75,7 @@ if(isset($_POST['submit'])){
 
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="register.php">
-							Créez votre compte
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-						<a href="user_logout.php">Log Out</a>
+						
 					</div>
 				</form>
 			</div>

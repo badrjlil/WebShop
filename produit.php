@@ -21,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $article['designation'] ?></title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_old.css">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
         include 'comp/user_header.php';
     ?>
 
-    <section id="prodetails" class="section-p1">
+    <section style="margin-top: 90px" id="prodetails" class="section-p1">
         <div class="single-pro-image">
             <img src="<?php echo $articlesPhotos['photo1'] ?>" width="700px" id="MainImg" alt="">
 
@@ -66,7 +66,7 @@
             <form action="" method="post">
                 <input type="hidden" name="noArticle" value="<?php echo $article['noArticle'] ?>">
                 
-                <input type="number" value="1" name="qts">
+                <input type="number" value="1" max="<?php echo $article['quantite'] ?>" min="1"  name="qts">
                 <button class="normal" type="submit" name="add_to_cart">Ajouter Au Panier</button>
             </form>
             <h4>Description</h4>

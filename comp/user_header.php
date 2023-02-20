@@ -13,7 +13,7 @@
 ?>
 
 <section id="header">
-    <a class="test" href="#"><img src="images/logo.png" class="logo" alt=""></a>
+    <a href="#"><img src="images/logo.png" class="logo" alt=""></a>
     <div>
         <form action="" method="post">
             <div class="search-box">

@@ -31,7 +31,7 @@
 <body>
 
 
-</body>
+
 <?php include '../comp/admin_header.php';  ?>
     <div id="searchbar" >
         <form action="" action="get">
@@ -47,7 +47,7 @@
 
     
 		<div class="content-box">
-			<p>Les Commandes</p>
+			<p>Les produits</p>
 			<br/>
       <table align="center">
         <tr>
@@ -117,5 +117,5 @@
 		</div>
 	</div>
 	</div>
-    
+  </body>
 </html>
