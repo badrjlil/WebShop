@@ -554,3 +554,26 @@ footer a:hover {
       text-align: center;
     }
 
+
+
+    .message{
+    
+        padding:2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap:1.5rem;
+        position: fixed;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 10px #000000;
+        z-index: 999;
+        color: white;
+        border: rgb(0, 110, 255) 2px solid;
+        font-weight: bold;
+        border-radius: 20px;
+    }
+    #close-button{
+        cursor: pointer;
+    }

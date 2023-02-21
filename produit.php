@@ -80,12 +80,12 @@
         <div class="col">
             <img class="logo" src="img/logo.png" alt="">
             <h4>Contact</h4>
-            <p><strong>Address: </strong> ain sebaa, casablanca, maroc</p>
-            <p><strong>Téléphoner:</strong> +212 6 84 06 35 95 </p>
-            <p><strong>Heures:</strong> 9:00 - 18:00, Lun - Sam</p>
+            <p  style="color: white;"><strong>Address: </strong> IGA - Belvédère, Casablanca, Maroc</p>
+            <p  style="color: white;"><strong>Téléphoner:</strong> +212 6 12 34 56 78 </p>
+            <p  style="color: white;"><strong>Heures:</strong> 9:00 - 18:00, Lun - Sam</p>
             <div class="follow">
                 <h4>Suivez-nous</h4>
-                <div class="icon">
+                <div class="icon" >
                     <i class="fab fa-facebook-f"></i>
                     <i class="fab fa-twitter"></i>
                     <i class="fab fa-instagram"></i>
@@ -97,19 +97,19 @@
 
         <div class="col">
             <h4>About</h4>
-            <a href="#">About Us</a>
+            <a href="#">À propos de nous</a>
             <a href="#">Informations de livraison</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Contact Us</a>
+            <a href="#">Politique de confidentialité</a>
+            <a href="#">Termes et conditions</a>
+            <a href="#">Contactez-nous</a>
         </div>
 
-        <div class="col">
+        <div class="col" style="color: white;">
             <h4>Mon Compte</h4>
-            <a href="#">Sign In</a>
-            <a href="#">Voir Le Panier</a>
-            <a href="#">Ma Liste D'envies</a>
-            <a href="#">Suivre Ma Commande</a>
+            <a href="#">S'identifier</a>
+            <a href="#">Voir le panier</a>
+            <a href="#">Ma Liste d'envies</a>
+            <a href="#">Suivre ma commande</a>
             <a href="#">Aider</a>
         </div>
 

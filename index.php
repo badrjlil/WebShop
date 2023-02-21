@@ -32,7 +32,7 @@
         <!-- Bagian content atas -->
 
 
-        <div class="container">
+        <div class="container" style="margin-top: 90px">
             <div class="contents">
                 <div class="image-container" onclick="location.href='https://www.apple.com/iphone-12/';" style="cursor: pointer;">
                     <div class="iphone-12">
@@ -116,44 +116,9 @@
                 </div>
             </li>
 
-            <li class="li3 content">
+      
 
-                <div class="theme-dark container-main" onclick="location.href='https://www.apple.com/macbook-air/';" style="cursor: pointer;">
-                    <div class="unit-copy-wrapper">
-                        <img class="mackbook-air-logo" src="./img/macbook-air-logo.png" alt=""
-                            style="width: 35%; margin-top: 55px;">
-                        <h2 class="headline">Pouvoir. C'est dans l'air.</h2>
-                    </div>
-                    <div class="cta-links">
-                        <a href="" class="learn-more-link">Afficher plus ></a>
-                        <a href="" class="buy-link">Acheter ></a>
-                    </div>
-                    <div class="unit-image">
-                        <figure>
-                            <img src="./img/macbook-air.png" alt="" style="width: 100%; height: 100%;">
-                        </figure>
-                    </div>
-                </div>
-            </li>
-
-            <li class="li4 content">
-
-                <div class="theme-light container-main" onclick="location.href='https://www.apple.com/apple-one/'" style="cursor: pointer;">
-                    <div class="unit-copy-wrapper">
-                        <img src="./img/apple-one-logo.png" alt="" style="width: 30%; margin-top: 20px;">
-                        <h2 class="headline">Regroupez jusqu'à six services Apple.<br>Et profitez de plus pour moins cher</h2>
-                    </div>
-                    <div class="cta-links">
-                        <a href="" class="learn-more-link">Afficher plus ></a>
-                        <a href="" class="buy-link">Acheter ></a>
-                    </div>
-                    <div class="unit-image">
-                        <figure>
-                            <img src="./img/apple-one.png" alt="apple-one" style="width: 80%;">
-                        </figure>
-                    </div>
-                </div>
-            </li>
+            
             
         </ul>
     </main>

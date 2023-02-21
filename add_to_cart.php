@@ -1,5 +1,5 @@
 <?php
-   
+   $no_produit=$_POST['noArticle'];
 if(isset($_POST['add_to_cart'])){
    session_start();
    if(isset($_SESSION['user_id'])){
@@ -9,7 +9,7 @@ if(isset($_POST['add_to_cart'])){
    }
 
    if($user_id == ''){
-      header('location:login.php');
+      header('location:login.php?pid='.$no_produit);
    }else{
       $pid = $_POST['noArticle'];
       $sql="SELECT * FROM Articles WHERE noArticle = $pid";

@@ -2,12 +2,15 @@
 session_start();
 if(isset($_SESSION['user_id'])){
   $user_id = $_SESSION['user_id'];
-  $sql="SELECT prenom, nom FROM Clients WHERE idClient = $user_id";
+  $sql="SELECT prenom, nom FROM Clients WHERE idClient = $user_id AND type = 'Administrateur'";
   $query_user=mysqli_query($connexion,$sql);
   $user=mysqli_fetch_assoc($query_user);
+  if(!mysqli_num_rows($query_user) > 0){
+    header("location:login.php");
+  }
 }else{
   header("location:login.php");
-};
+}
 
 ?>
 <div id="mySidenav" class="sidenav">

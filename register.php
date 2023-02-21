@@ -3,28 +3,32 @@ require_once("connexion.php");
 
 session_start();
 
-if(isset($_SESSION['user_id'])){
-   $user_id = $_SESSION['user_id'];
-   //header('location:../produits.php');
-}else{
-   $user_id = '';
-};
+if(isset($_GET['pid'])){
+	$pid=$_GET['pid'];
+}
 
 if(isset($_POST['submit'])){
-
+	$prenom= $_POST['prenom'];
+	$nom= $_POST['nom'];
    $email = $_POST['email'];
    $pass = $_POST['pass'];
 
-   $sql="SELECT * FROM Clients WHERE email = '$email' AND password = '$pass'";
+   $sql="SELECT * FROM Clients WHERE email = '$email' ";
    $query=mysqli_query($connexion,$sql);
    $client=mysqli_fetch_assoc($query);
    if(mysqli_num_rows($query) > 0){
-      $_SESSION['user_id'] = $client['idClient']; 
-      header('location:register.php');
+	$message[] = 'Un compte avec cet email existe déjà';
+      
    }else{
-      $message[] = 'incorrect username or password!';
+	$sql="INSERT INTO Clients (prenom, nom, email, password) VALUES ('$prenom','$nom','$email','$pass')";
+	$query=mysqli_query($connexion,$sql);
+	if(isset($_GET['pid'])){
+		header('location:login.php?registered=yes&pid='.$pid);
+	}else{
+		header('location:login.php?registered=yes');
    }
 
+}
 }
 
 ?>
@@ -83,7 +87,6 @@ if(isset($_POST['submit'])){
 						<span class="symbol-input100">
 						</span>
 					</div>
-					
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" name="submit">
 							S'inscrire
@@ -91,8 +94,8 @@ if(isset($_POST['submit'])){
 					</div>
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="#">
-						Se connecter
+						<a style="color:white;" class="txt2" href="login.php">
+						 Se connecter
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>

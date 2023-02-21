@@ -450,7 +450,7 @@ footer a:hover {
 }
 
 #prodetails .single-pro-details button {
-    background: #088178;
+    background: #0099ff;
     color: #fff;
 }
 
@@ -631,7 +631,7 @@ footer a:hover {
     box-shadow: 0 0 10px #000000;
     z-index: 999;
     color: white;
-    border: red 1px solid;
+    border: rgb(0, 119, 255) 2px solid;
     font-weight: bold;
     border-radius: 20px;
 }
