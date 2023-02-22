@@ -5,109 +5,107 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> About Us Page Design </title>
     
-    <link rel="stylesheet" href="about.css">
-    <script src="https://kit.fontawesome.com/a5b35d00f5.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="about-us.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="about_new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
-    <title>WebShop - Contact us</title>
+
 </head>
+
 <body>
- 
-<?php
+    <!--================== Header Section Starts from Here ==================-->
+    <?php
     include 'comp/user_header.php';
 ?>
+    <!--================== Header Section Ends Here -->
 
 
-    <div style="margin-top: 60px" class="ct-pageWrapper" id="ct-js-wrapper">
-        <section class="company-heading intro-type" id="parallax-one">
-          <div class="container">
-            <div class="row product-title-info">
-              <div class="col-md-12">
-                <h1>À propos de nous</h1>
-              </div>
+    <!--================== Home Section Starts from Here ==================-->
+    <section style="margin-top: 120px" id="home">
+        <div class="home-left">
+            <img src="./user.jpg" alt="">
+        </div>
+        <div class="home-right">
+            <h2 class="home-heading"> </h2>
+            <p class="home-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quibusdam blanditiis
+                quas assumenda nam error vel dolores suscipit ad, sapiente deleniti ipsum, obcaecati perspiciatis.</p>
+            <a style="color:white;" href="" class="btn"> Notre travail</a>
+        </div>
+    </section>
+    <!--================== Home Section Ends Here -->
+
+    <!--================== Workflow Section Starts from Here ==================-->
+    <section id="workFlow">
+        <h2 class="heading"></h2>
+        <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, commodi sint. <br>Ipsam molestias
+            nemovel laboriosam consequatur, perferendis<br> minima soluta? Natus necessitatibus autem suscipit!</p>
+        <div class="num-container">
+            <div class="num-item"><span>27,882 <br>Clients</span></div>
+            <div class="num-item"><span>70% <br>Commandes</span></div>
+            <div class="num-item"><span>70,592 <br>Produits</span></div>
+        </div>
+    </section>
+    <!--================== Workflow Section Ends Here -->
+
+
+    <!--================== Goal Section Starts from Here ==================-->
+    <section id="goal">
+        <div class="goal-left">
+            <h2>Notre objectif</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore omnis obcaecati incidunt asperiores,
+                mollitia quibusdam velit at itaque sunt, culpa in pariatur quas, temporibus repellendus vitae! Vitae,
+                illum asperiores.</p>
+            <ul>
+                <li> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, atque!</li>
+                <li> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, atque!</li>
+                <li> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, atque!</li>
+            </ul>
+            <a href="" class="btn"> Contact Us</a>
+        </div>
+        <div class="goal-right">
+            <img src="./our goal.jpg" alt="">
+        </div>
+    </section>
+    <!--================== Goal Section Ends Here -->
+
+    <!--================== Our Team Section Starts from Here ==================-->
+    <section id="our-Team">
+        <h2>Notre membre</h2>
+        <div class="teamContainer">
+            <div class="team-item">
+                <img src="./teamMember.png" alt="">
+                <h5 class="member-name">John Smith</h5>
+                <span class="role">seo expert</span>
             </div>
-          </div>
-          <div class="parallax" id="parallax-cta" style="background-image:url(https://www.solodev.com/assets/hero/hero.jpg);"></div>
-        </section>
-        <section class="story-section company-sections ct-u-paddingBoth100 paddingBothHalf noTopMobilePadding" id="section">
-          <div class="container text-center">
-            <h2>WHAT DRIVES US</h2>
-            <h3>Lorem ipsum - dolor</h3>
-            <div class="col-md-8 col-md-offset-2">
-              <div class="red-border"></div>
-              <p class="ct-u-size22 ct-u-fontWeight300 marginTop40">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed libero vel ex maximus vulputate nec eu ligula. Vestibulum elementum nisi ut fermentum lobortis. Sed quis iaculis felis.</p>
-              <!-- <a class="ct-u-marginTop60 btn btn-solodev-red btn-fullWidth-sm ct-u-size19" href="#">Learn More</a> -->
+            <div class="team-item">
+                <img src="./teamMember.png" alt="">
+                <h5 class="member-name">John Smith</h5>
+                <span class="role">seo expert</span>
             </div>
-          </div>
-        </section>
-        <section class="culture-section company-sections ct-u-paddingBoth100 paddingBothHalf noTopMobilePadding">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-8 col-md-offset-2">
-                <h2>Etiam varius porttitor</h2>
-                <h3>Vestibulum elementum nisi ut</h3>
-                <p class="ct-u-size22 ct-u-fontWeight300 ct-u-marginBottom60">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-                Praesent sed libero vel ex maximus vulputate nec eu ligula. Vestibulum elementum nisi ut fermentum lobortis.</p>
-              </div>
+            <div class="team-item">
+                <img src="./teamMember.png" alt="">
+                <h5 class="member-name">John Smith</h5>
+                <span class="role">seo expert</span>
             </div>
-            <div class="row ct-u-paddingBoth20">
-              <div class="col-xs-6 col-md-4">
-                <div class="company-icons-white">
-                  <i class="fa fa-medkit" aria-hidden="true"></i>
-                  <p>LOREM IPSUM</p>
-                  <p class="company-icons-subtext hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-              </div>
-              <div class="col-xs-6 col-md-4">
-                <div class="company-icons-white">
-                  <i class="fa fa-money" aria-hidden="true"></i>
-                  <p>DOLOR SIT AMET</p>
-                  <p class="company-icons-subtext hidden-xs">Praesent sed libero vel ex maximus vulputate nec eu ligula.</p>
-                </div>
-              </div>
-              <div class="col-xs-6 col-md-4">
-                <div class="company-icons-white">
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <p>SED TRISTIQUE</p>
-                  <p class="company-icons-subtext hidden-xs">Vestibulum elementum nisi ut fermentum lobortis.</p>
-                </div>
-              </div>
+            <div class="team-item">
+                <img src="./teamMember.png" alt="">
+                <h5 class="member-name">John Smith</h5>
+                <span class="role">seo expert</span>
             </div>
-            <div class="row ct-u-paddingBoth20">
-              <div class="col-xs-6 col-md-4">
-                <div class="company-icons-white">
-                  <i class="fa fa-coffee" aria-hidden="true"></i>
-                  <p>SEMPER IPSUM</p>
-                  <p class="company-icons-subtext hidden-xs">Nullam bibendum felis non laoreet rutrum.</p>
-                </div>
-              </div>
-              <div class="col-xs-6 col-md-4">
-                <div class="company-icons-white">
-                  <i class="fa fa-gamepad" aria-hidden="true"></i>
-                  <p>NEC MATTIS</p>
-                  <p class="company-icons-subtext hidden-xs">Etiam diam mi, lacinia eu sapien in, dapibus sodales erat.</p>
-                </div>
-              </div>
-              <div class="col-xs-6 col-md-4">
-                <div class="company-icons-white">
-                  <i class="fa fa-cutlery" aria-hidden="true"></i>
-                  <p>CRAS MOLLIS</p>
-                  <p class="company-icons-subtext hidden-xs">Etiam varius porttitor tellus et aliquet.</p>
-                </div>
-              </div>
-            </div>
-            <a class="ct-u-marginTop60 btn btn-solodev-red-reversed btn-fullWidth-sm ct-u-size19" href="/careers/">Ready to Learn More?</a>
-          </div>
-        </section>
-      </div>
-      
+        </div>
+    </section>
+    <!--================== Our Team Section Ends Here -->
+
+    <!--================== Footer Starts from Here ==================-->
+    <footer>
+        <p> ©2023 Online Ecommerce Shop </p>
+    </footer>
+    <!--================== Footer Ends Here -->
+
 </body>
-
+<script src="about_new.js"></script>
 </html>
