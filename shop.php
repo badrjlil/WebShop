@@ -80,7 +80,7 @@
                     <br>
                     <br>
                     <input id="filter" type="submit" value="Ok" >
-                    <input type="hidden" name="keyword" value="iphone">
+                    <input type="hidden" name="keyword" value="<?php echo $keyword ?>">
 
                     <script>
                         

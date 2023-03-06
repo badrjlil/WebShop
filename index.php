@@ -34,26 +34,25 @@
 
         <div class="container" style="margin-top: 90px">
             <div class="contents">
-                <div class="image-container" onclick="location.href='https://www.apple.com/iphone-12/';" style="cursor: pointer;">
+                <div class="image-container" onclick="location.href='produit.php?noArticle=84';" style="cursor: pointer;">
                     <div class="iphone-12">
                         <div class="title">
                             <h1>iPhone 14</h1>
                             <p>Passez vite.</p>
                         </div>
                         <div class="cta-links">
-                            <a href="#" class="learn-more-link">Afficher plus ></a>
+                            
                             <a href="#" class="buy-link">Acheter ></a>
                         </div>
                     </div>
                 </div>
-                <div class="image-container" onclick="location.href='https://www.apple.com/iphone-12-pro/';" style="cursor: pointer;">
+                <div class="image-container" onclick="location.href='produit.php?noArticle=80';" style="cursor: pointer;">
                     <div class="iphone-12-pro">
                         <div class="title">
                             <h1>iPhone 14 Pro</h1>
                             <p>C'est une année bissextile.</p>
                         </div>
                         <div class="cta-links">
-                            <a href="#" class="learn-more-link">Afficher plus ></a>
                             <a href="#" class="buy-link">Acheter ></a>
                         </div>
                     </div>
@@ -63,7 +62,7 @@
                     <h1 class="hello">Fitness+</h1>
                     <p class="A">Une nouvelle expérience de remise en forme pour tous.</p>
                     <div class="cta-links">
-                        <a href="https://www.apple.com/apple-fitness-plus/" class="buy-link">Afficher plus ></a>
+                        <a href="produit.php?noArticle=77" class="buy-link">Afficher plus ></a>
                     </div>
                 <div class="image-container">
                 <div class="fitness" onclick="location.href='https:https://www.apple.com/apple-fitness-plus/';" style="cursor: pointer;"></div>    
@@ -79,13 +78,12 @@
             <li class="li1 content">
 
                 <div class="theme-dark container-main"
-                    onclick="location.href='https://www.apple.com/apple-watch-series-6/';" style="cursor: pointer;">
+                    onclick="location.href='produit.php?noArticle=77';" style="cursor: pointer;">
                     <div class="unit-copy-wrapper">
                         <img class="apple-watch-logo" src="./img/apple-watch-logo.png" alt="apple-watch-logo">
                         <h2 class="headline">L'avenir de la santé est à votre poignet.</h2>
                     </div>
                     <div class="cta-links">
-                        <a href="https://www.apple.com/apple-watch-series-6/" class="learn-more-link">Afficher plus ></a>
                         <a href="https://www.apple.com/shop/buy-watch/apple-watch" class="buy-link">Acheter ></a>
                     </div>
                     <div class="unit-image">
@@ -98,14 +96,13 @@
 
             <li class="li2 content">
 
-                <div class="theme-light container-main" onClick="location.href='https://www.apple.com/ipad-air/';"
+                <div class="theme-light container-main" onClick="location.href='produit.php?noArticle=82';"
                     style="cursor: pointer;">
                     <div class="unit-copy-wrapper">
                         <img class="apple-watch-logo" src="./img/ipad-air-logo.png" alt="">
                         <h2 class="headline">Puissant. Coloré. Merveilleux.</h2>
                     </div>
                     <div class="cta-links">
-                        <a href="" class="learn-more-link">Afficher plus ></a>
                         <a href="" class="buy-link">Acheter ></a>
                     </div>
                     <div class="unit-image">
