@@ -33,7 +33,7 @@ if(isset($_SESSION['user_id'])){
 	
 	<div class="col-div-6">
 	  <div class="profile">
-      <img src="images/user.png" class="pro-img" />
+      <img src="../img/user.png" class="pro-img" />
       <p><?php echo $user['prenom'] . " " . $user['nom'] ?> <span><a style=" color:gray;" href="admin_logout.php">Log Out</a></span></p>
   </div>
   </div>

@@ -39,9 +39,9 @@
         
         <title>WebShop - Produits</title>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js" defer></script>
-        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/script.js" defer></script>
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     </head>
 
     <body>

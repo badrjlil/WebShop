@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="../css/dashboard.css" type="text/css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="../js/admin.js" defer></script>
 </head>
 
 
@@ -35,7 +35,7 @@
 <?php include '../comp/admin_header.php';  ?>
     <div id="searchbar" >
         <form action="" action="get">
-          <div style="display:inline-block;"><input type="text" name="keyword" value="<?php echo $keyword?>"></div>
+          <div style="display:inline-block;"><input type="text" name="keyword" value="<?php if(isset($_GET['keyword'])){ echo $keyword;} ?>"></div>
           <div style="display:inline-block;"><input id="search-btn" type="submit" value="Rechercher"></div>
         </form>
     </div>
@@ -63,6 +63,7 @@
         $article=mysqli_fetch_all($articles_query,MYSQLI_ASSOC);
         $nbr= count($article);
         $start=$lpage*8;
+        $lines=0;
         for ($i = $start; $i < $nbr; $i++) {
           $lines+=1;
               ?>

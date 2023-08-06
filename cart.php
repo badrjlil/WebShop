@@ -29,11 +29,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Panier - Webshop</title>
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
-    <link rel="stylesheet" href="style_old.css">
+    <link rel="stylesheet" href="css/cart.css">
 </head>
 
 <body>
@@ -135,9 +135,9 @@
         }
     ?>
 
-<footer style="<?php if($nbr_produits > 0){echo 'position:sticky; width: 100%; height: 100%;';} else{echo 'position:fixed; bottom:0; width: 100%; height: 350px;';} ?>" class="section-p1">
+<footer class="section-p1">
         <div class="col"  style="color: white;">
-            <img class="logo" src="images/logo.png" alt="">
+            <img class="logo" src="img/logo.png" alt="">
             <h4>Contact</h4>
             <p  style="color: white;"><strong>Address: </strong> IGA - Belvédère, Casablanca, Maroc</p>
             <p  style="color: white;"><strong>Téléphoner:</strong> +212 6 12 34 56 78 </p>
@@ -167,11 +167,11 @@
             <h4>Installer L'application</h4>
             <p>Depuis App Store ou Google Play</p>
             <div class="row">
-                <img src="images/pay/app.jpg" alt="">
-                <img src="images/pay/play.jpg" alt="">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
             </div>
             <p>Passerelles de paiement sécurisées</p>
-            <img src="images/pay/pay.png" alt="">
+            <img src="img/pay/pay.png" alt="">
         </div>
 
         <div class="copyright">

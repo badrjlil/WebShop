@@ -23,7 +23,7 @@ $reponse=mysqli_query($connexion,$sql);
 	<link rel="stylesheet" href="../css/dashboard.css" type="text/css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="../js/admin.js" defer></script>
 </head>
 
 
@@ -32,7 +32,7 @@ $reponse=mysqli_query($connexion,$sql);
 <?php include '../comp/admin_header.php';  ?>
 <div id="searchbar" >
         <form action="" action="get">
-          <div style="display:inline-block;"><input type="text" name="keyword" value="<?php echo $keyword?>"></div>
+          <div style="display:inline-block;"><input type="text" name="keyword" value="<?php if(isset($_GET['keyword'])){ echo $keyword;}?>"></div>
           <div style="display:inline-block;"><input id="search-btn" type="submit" value="Rechercher"></div>
         </form>
 </div>
@@ -59,6 +59,7 @@ $reponse=mysqli_query($connexion,$sql);
                   $row=mysqli_fetch_all($reponse,MYSQLI_ASSOC);
                   $nbr= count($row);
                   $start=$lpage*8;
+                  $lines=0;
                   for ($i = $start; $i < $nbr; $i++) {
                     $lines+=1;
 
@@ -68,7 +69,7 @@ $reponse=mysqli_query($connexion,$sql);
                       <td><?php  echo $row[$i]['nom'] . " "  .  $row[$i]['prenom'] ;?></td>
                       <td><?php  echo $row[$i]['email'] ;?></td>
                       <td><?php echo $row[$i]['messageko'] . "..." ?></td>
-                      <td><?php  echo date("d-m-Y", strtotime($row['date']))?></td>
+                      <td><?php  echo date("d-m-Y", strtotime($row[$i]['date']))?></td>
                       <td><?php  echo $row[$i]['statut'] ?></td>
                       <td><button onclick="window.location.href='message.php?id=<?php echo $row[$i]['id'] ?>'">Afficher</button></td>
                     </tr>

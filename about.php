@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> About Us Page Design </title>
     
-    <link rel="stylesheet" href="about_new.css">
+    <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -27,7 +27,7 @@
     <!--================== Home Section Starts from Here ==================-->
     <section style="margin-top: 120px" id="home">
         <div class="home-left">
-            <img src="./user.jpg" alt="">
+            <img src="./img/user.jpg" alt="">
         </div>
         <div class="home-right">
             <h2 class="home-heading"> </h2>
@@ -67,7 +67,7 @@
             <a href="" class="btn"> Contact Us</a>
         </div>
         <div class="goal-right">
-            <img src="./our goal.jpg" alt="">
+            <img src="img/our goal.jpg" alt="">
         </div>
     </section>
     <!--================== Goal Section Ends Here -->
@@ -77,22 +77,22 @@
         <h2>Notre membre</h2>
         <div class="teamContainer">
             <div class="team-item">
-                <img src="./teamMember.png" alt="">
+                <img src="img/teamMember.png" alt="">
                 <h5 class="member-name">John Smith</h5>
                 <span class="role">seo expert</span>
             </div>
             <div class="team-item">
-                <img src="./teamMember.png" alt="">
+                <img src="img/teamMember.png" alt="">
                 <h5 class="member-name">John Smith</h5>
                 <span class="role">seo expert</span>
             </div>
             <div class="team-item">
-                <img src="./teamMember.png" alt="">
+                <img src="img/teamMember.png" alt="">
                 <h5 class="member-name">John Smith</h5>
                 <span class="role">seo expert</span>
             </div>
             <div class="team-item">
-                <img src="./teamMember.png" alt="">
+                <img src="img/teamMember.png" alt="">
                 <h5 class="member-name">John Smith</h5>
                 <span class="role">seo expert</span>
             </div>

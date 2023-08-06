@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apple</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <!-- <link rel="stylesheet" href="reset.css"> buat reset css -->
     <link rel="shortcut icon" type="image/jpg" href="./img/apple-logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
@@ -123,7 +123,7 @@
     <!-- Bagian footer-->
     <footer class="section-p1">
         <div class="col"  style="color: white;">
-            <img class="logo" src="images/logo.png" alt="">
+            <img class="logo" src="img/logo.png" alt="">
             <h4>Contact</h4>
             <p  style="color: white;"><strong>Address: </strong> IGA - Belvédère, Casablanca, Maroc</p>
             <p  style="color: white;"><strong>Téléphoner:</strong> +212 6 12 34 56 78 </p>
@@ -162,11 +162,11 @@
             <h4>Installer L'application</h4>
             <p>Depuis App Store ou Google Play</p>
             <div class="row">
-                <img src="images/pay/app.jpg" alt="">
-                <img src="images/pay/play.jpg" alt="">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
             </div>
             <p>Passerelles de paiement sécurisées</p>
-            <img src="images/pay/pay.png" alt="">
+            <img src="img/pay/pay.png" alt="">
         </div>
 
         <div class="copyright">

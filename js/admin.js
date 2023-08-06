@@ -1,5 +1,4 @@
-
-  $(".nav").click(function(){
+$(".nav").click(function(){
     $("#mySidenav").css('width','70px');
     $("#main").css('margin-left','70px');
     $(".logo").css('visibility', 'hidden');

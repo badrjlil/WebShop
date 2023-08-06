@@ -13,7 +13,7 @@
 ?>
 
 <section id="header">
-    <a href="#"><img src="images/logo.png" class="logo" alt=""></a>
+    <a href="#"><img src="img/logo.png" class="logo" alt=""></a>
     <div>
         <form action="" method="post">
             <div class="search-box">
@@ -24,7 +24,7 @@
     </div>
     <div>
         <ul id="navbar">
-            <li><a href="/">Accueil</a></li>
+            <li><a href="index.php">Accueil</a></li>
             <li><a href="shop.php">Produits</a></li>
             <li><a href="about.php">À propos de nous</a></li>
             <li><a href="contact.php">Contactez-nous</a></li>

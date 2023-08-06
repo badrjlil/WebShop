@@ -257,11 +257,11 @@ td, th {
   text-align: center;
   margin: 5px;
 }
-.images_container {
+.img_container {
   display: flex;
   justify-content: space-between;
 }
-.images{
+.img{
   height: 60%;
 }
 

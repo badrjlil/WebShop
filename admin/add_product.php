@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="../css/dashboard.css" type="text/css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="../js/admin.js" defer></script>
 </head>
 
 
@@ -54,12 +54,12 @@
             <textarea name="description" id="test" cols="60" rows="10"></textarea>
             <br>
             <label>Photos</label>
-            <div class="images_container">
+            <div class="img_container">
               <?php
                 for ($i = 1; $i <= 6; $i++) {
               ?>
               <div class="box-add-product">
-                <img id="selected-image-<?php echo $i?>" class="images" src="" width="100px" >
+                <img id="selected-image-<?php echo $i?>" class="img" src="" width="100px" >
                 <input id="image-input-<?php echo $i?>" type="file" name="photo<?php echo $i ?>"/>
               </div>
               <?php

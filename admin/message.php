@@ -16,7 +16,7 @@ $query=mysqli_query($connexion,$sql);
 	<link rel="stylesheet" href="../css/dashboard.css" type="text/css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="../js/admin.js" defer></script>
 </head>
 
 

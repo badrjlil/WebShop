@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 
 
 </head>
@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="images/img-01.png" alt="IMG">
+					<img src="img/img-01.png" alt="IMG">
 				</div>
 
 				<form action="" method="post" class="login100-form validate-form">

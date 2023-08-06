@@ -129,7 +129,7 @@ textarea {
 }
 
 #container {
-  border: solid 3px #474544;
+  border: solid 3px #ffffff;
   max-width: 768px;
   margin: 60px auto;
   position: relative;
@@ -141,7 +141,7 @@ form {
 }
 
 h1 {
-  color: #474544;
+  color: #ffffff;
   font-size: 32px;
   font-weight: 700;
   letter-spacing: 7px;
@@ -150,7 +150,7 @@ h1 {
 }
 
 .underline {
-  border-bottom: solid 2px #474544;
+  border-bottom: solid 2px #ffffff;
   margin: -0.512em auto;
   width: 80px;
 }
@@ -162,7 +162,7 @@ h1 {
 
 .icon {
   display: block;
-  fill: #474544;
+  fill: #ffffff;
   height: 50px;
   margin: 0 auto;
   width: 50px;
@@ -176,8 +176,8 @@ h1 {
 input[type='text'], [type='email'], select, textarea {
 	background: none;
   border: none;
-	border-bottom: solid 2px #474544;
-	color: #474544;
+	border-bottom: solid 2px #ffffff;
+	color: #ffffff;
 	font-size: 1.000em;
   font-weight: 400;
   letter-spacing: 1px;
@@ -214,8 +214,6 @@ input[type='text']:focus, [type='email']:focus, textarea:focus {
 select {
   background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
   outline: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
 }
 
 select::-ms-expand {
@@ -238,27 +236,27 @@ textarea {
 }
 
 ::-webkit-input-placeholder {
-	color: #474544;
+	color: #ffffff;
 }
 
 :-moz-placeholder { 
-	color: #474544;
+	color: #ffffff;
 	opacity: 1;
 }
 
 ::-moz-placeholder {
-	color: #474544;
+	color: #ffffff;
 	opacity: 1;
 }
 
 :-ms-input-placeholder {
-	color: #474544;
+	color: #ffffff;
 }
 
 #form_button {
   background: none;
-  border: solid 2px #474544;
-  color: #474544;
+  border: solid 2px #ffffff;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
   font-family: 'Helvetica', Arial, sans-serif;
@@ -275,7 +273,7 @@ textarea {
 }
 
 #form_button:hover {
-  background: #474544;
+  background: #ffffff;
   color: #F2F3EB;
 }
 
